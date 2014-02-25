@@ -39,6 +39,7 @@ gem 'jbuilder', '~> 1.2'
 # Production gems for heroku
 group :production do
 	gem 'pg'
+	gem 'rails_12factor'
 end
 
 group :doc do
