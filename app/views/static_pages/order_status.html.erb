@@ -1,0 +1,126 @@
+<%
+=begin
+%>
+<% order = 4 %>
+
+<div class="row">
+  <div class="text-center col-md-1"><b>Order 1</b></div>
+  <% if order != 1 %>
+    <div class="text-center col-md-1">Concept</div>
+  <% else %>
+    <div class="bg-success text-center col-md-1">Concept</div>
+  <% end %>
+  <% if order != 2 %>
+    <div class="text-center col-md-1">Negotiate</div>
+  <% else %>
+    <div class="bg-success text-center col-md-1">Negotiate</div>
+  <% end %>
+  <% if order != 3 %>  
+    <div class="text-center col-md-1">Agreement</div>
+  <% else %>
+    <div class="bg-success text-center col-md-1">Agreement</div>
+  <% end %>
+  <% if order != 4 %>
+    <div class="text-center col-md-1">Review</div>
+  <% else %>
+    <div class="bg-success text-center col-md-1">Review</div>
+  <% end %>
+  <% if order != 5 %>
+    <div class="text-center col-md-1">Formulate</div>
+  <% else %>
+    <div class="bg-success text-center col-md-1">Formulate</div>
+  <% end %>
+  <% if order != 6 %>
+    <div class="text-center col-md-1">Sample</div>
+  <% else %>
+    <div class="bg-success text-center col-md-1">Sample</div>
+  <% end %>
+  <% if order != 7 %>
+    <div class="text-center col-md-1">Register</div>
+  <% else %>
+    <div class="bg-success text-center col-md-1">Register</div>
+  <% end %>
+  <% if order != 8 %>
+    <div class="text-center col-md-1">Manufacture</div>
+  <% else %>
+    <div class="bg-success text-center col-md-1">Manufacture</div>
+  <% end %>
+  <% if order != 9 %>
+    <div class="text-center col-md-1">Logistics</div>
+  <% else %>
+    <div class="bg-success text-center col-md-1">Logistics</div>
+  <% end %>
+    <div class="text-center col-md-1"></div>
+    <div class="text-center col-md-1"></div>
+</div>
+
+<%
+=end
+%>
+
+
+
+<%
+=begin
+%> 
+<% orders = 101, 333, 543, 119 %>
+<% stats = 2, 4, 1, 8 %>
+<%
+=end
+%>
+
+<% stats = ['22341002', '43435009', '47478004', '12323001', '84565008'] %>
+
+<% stats.each do |stat| %>
+  <div class="row">
+    <div class="text-center col-md-1">Order #</div>
+    <div class="text-center col-md-1"><%= stat.first(5) %></div>
+    <% if stat.last(3) != '001' %>
+      <div class="text-center col-md-1">Concept</div>
+    <% else %>
+      <div class="bg-primary text-center col-md-1">Concept</div>
+    <% end %>
+    <% if stat.last(3) != '002' %>
+      <div class="text-center col-md-1">Negotiate</div>
+    <% else %>
+      <div class="bg-primary text-center col-md-1">Negotiate</div>
+    <% end %>
+    <% if stat.last(3) != '003' %>  
+      <div class="text-center col-md-1">Agreement</div>
+    <% else %>
+      <div class="bg-primary text-center col-md-1">Agreement</div>
+    <% end %>
+    <% if stat.last(3) != '004' %>
+      <div class="text-center col-md-1">Review</div>
+    <% else %>
+      <div class="bg-primary text-center col-md-1">Review</div>
+    <% end %>
+    <% if stat.last(3) != '005' %>
+      <div class="text-center col-md-1">Formulate</div>
+    <% else %>
+      <div class="bg-primary text-center col-md-1">Formulate</div>
+    <% end %>
+    <% if stat.last(3) != '006' %>
+      <div class="text-center col-md-1">Sample</div>
+    <% else %>
+      <div class="bg-primary text-center col-md-1">Sample</div>
+    <% end %>
+    <% if stat.last(3) != '007' %>
+      <div class="text-center col-md-1">Register</div>
+    <% else %>
+      <div class="bg-primary text-center col-md-1">Register</div>
+    <% end %>
+    <% if stat.last(3) != '008' %>
+      <div class="text-center col-md-1">Manufacture</div>
+    <% else %>
+      <div class="bg-primary text-center col-md-1">Manufacture</div>
+    <% end %>
+    <% if stat.last(3) != '009' %>
+      <div class="text-center col-md-1">Logistics</div>
+    <% else %>
+      <div class="bg-primary text-center col-md-1">Logistics</div>
+    <% end %>
+      <div class="text-center col-md-1"></div>
+      <div class="text-center col-md-1"></div>
+  </div>
+<% end %>
