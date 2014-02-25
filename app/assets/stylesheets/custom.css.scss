@@ -120,6 +120,34 @@ footer ul li {
 }
 
 
+
+/* tables */
+
+
+.table-highlight-primary {
+	background: $brand-primary !important;
+	color: #ffffff;
+}
+
+
+
+/* flash alerts */
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+}
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+}
+
+
 /* miscellaneous */
 
 .debug_dump {
@@ -129,3 +157,4 @@ footer ul li {
 	margin-top: 45px;
 	@include box_sizing;
 }
+
