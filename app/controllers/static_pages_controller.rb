@@ -1,9 +1,9 @@
 class StaticPagesController < ApplicationController
-	before_filter :authenticate_user!, only: [:order_status]
+	before_filter :authenticate_user!, only: [:product_status]
 	
 	def home
 	end
 
-	def order_status
+	def product_status
 	end
 end

@@ -1,4 +1,4 @@
-<h1>Order Status</h1>
+<h1>Product Status</h1>
 
 
 <% stats = ['22341002', '43435009', '47478004', '12323001', '84565008'] %>
@@ -8,7 +8,7 @@
   <table class="table table-striped">
     <% stats.each do |stat| %>
       <tr>
-        <td><%= "Order #{stat.first(5)}" %></td>
+        <td><%= "Product #{stat.first(5)}" %></td>
         <% if stat.last(3) != '001' %>
           <td class="text-center">Concept</td>
         <% else %>

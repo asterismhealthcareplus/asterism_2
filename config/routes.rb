@@ -7,7 +7,7 @@ Asterism2::Application.routes.draw do
   root to: 'static_pages#home'
 
   # order_status page
-  get '/order_status', to: 'static_pages#order_status'
+  get '/product_status', to: 'static_pages#product_status'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
