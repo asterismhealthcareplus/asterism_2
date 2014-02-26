@@ -11,6 +11,8 @@ gem 'devise'
 # Twitter-bootstrap
 gem 'bootstrap-sass'
 
+gem 'aws-sdk'
+
 group :development, :test do
 	gem 'sqlite3'
 end
