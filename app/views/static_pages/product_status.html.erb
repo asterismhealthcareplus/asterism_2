@@ -4,4 +4,57 @@
 <% stats = ['22341002', '43435009', '47478004', '12323001', '84565008'] %>
 
 
-<%= render 'product_status_table' %>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <% stats.each do |stat| %>
+      <tr>
+        <td><%= "Product #{stat.first(5)}" %></td>
+        <% if stat.last(3) != '001' %>
+          <td class="text-center">Concept</td>
+        <% else %>
+          <td class="table-highlight-primary text-center">Concept</td>
+        <% end %>
+        <% if stat.last(3) != '002' %>
+          <td class="text-center">Negotiate</td>
+        <% else %>
+          <td class="table-highlight-primary text-center">Negotiate</td>
+        <% end %>
+        <% if stat.last(3) != '003' %>  
+          <td class="text-center">Agreement</td>
+        <% else %>
+          <td class="table-highlight-primary text-center">Agreement</td>
+        <% end %>
+        <% if stat.last(3) != '004' %>
+          <td class="text-center">Review</td>
+        <% else %>
+          <td class="table-highlight-primary text-center">Review</td>
+        <% end %>
+        <% if stat.last(3) != '005' %>
+          <td class="text-center">Formulate</td>
+        <% else %>
+          <td class="table-highlight-primary text-center">Formulate</td>
+        <% end %>
+        <% if stat.last(3) != '006' %>
+          <td class="text-center">Sample</td>
+        <% else %>
+          <td class="table-highlight-primary text-center">Sample</td>
+        <% end %>
+        <% if stat.last(3) != '007' %>
+          <td class="text-center">Register</td>
+        <% else %>
+          <td class="table-highlight-primary text-center">Register</td>
+        <% end %>
+        <% if stat.last(3) != '008' %>
+          <td class="text-center">Manufacture</td>
+        <% else %>
+          <td class="table-highlight-primary text-center">Manufacture</td>
+        <% end %>
+        <% if stat.last(3) != '009' %>
+          <td class="text-center">Logistics</td>
+        <% else %>
+          <td class="table-highlight-primary text-center">Logistics</td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>
