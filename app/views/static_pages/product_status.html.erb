@@ -10,49 +10,49 @@
       <tr>
         <td class="row-heading"><%= "Product #{stat.first(5)}" %></td>
         <% if stat.last(3) != '001' %>
-          <td class="text-center">Concept</td>
+          <td class="text-center"><%= concept_icon %>Concept</td>
         <% else %>
-          <td class="table-highlight-primary text-center">Concept</td>
+          <td class="table-highlight-primary text-center"><%= concept_icon %>Concept</td>
         <% end %>
         <% if stat.last(3) != '002' %>
-          <td class="text-center">Negotiate</td>
+          <td class="text-center"><%= negotiate_icon %>Negotiate</td>
         <% else %>
-          <td class="table-highlight-primary text-center">Negotiate</td>
+          <td class="table-highlight-primary text-center"><%= negotiate_icon %>Negotiate</td>
         <% end %>
         <% if stat.last(3) != '003' %>  
-          <td class="text-center">Agreement</td>
+          <td class="text-center"><%= agreement_icon %>Agreement</td>
         <% else %>
-          <td class="table-highlight-primary text-center">Agreement</td>
+          <td class="table-highlight-primary text-center"><%= agreement_icon %>Agreement</td>
         <% end %>
         <% if stat.last(3) != '004' %>
-          <td class="text-center">Review</td>
+          <td class="text-center"><%= review_icon %>Review</td>
         <% else %>
-          <td class="table-highlight-primary text-center">Review</td>
+          <td class="table-highlight-primary text-center"><%= review_icon %>Review</td>
         <% end %>
         <% if stat.last(3) != '005' %>
-          <td class="text-center">Formulate</td>
+          <td class="text-center"><%= formulate_icon %>Formulate</td>
         <% else %>
-          <td class="table-highlight-primary text-center">Formulate</td>
+          <td class="table-highlight-primary text-center"><%= formulate_icon %>Formulate</td>
         <% end %>
         <% if stat.last(3) != '006' %>
-          <td class="text-center">Sample</td>
+          <td class="text-center"><%= sample_icon %>Sample</td>
         <% else %>
-          <td class="table-highlight-primary text-center">Sample</td>
+          <td class="table-highlight-primary text-center"><%= sample_icon %>Sample</td>
         <% end %>
         <% if stat.last(3) != '007' %>
-          <td class="text-center">Register</td>
+          <td class="text-center"><%= register_icon %>Register</td>
         <% else %>
-          <td class="table-highlight-primary text-center">Register</td>
+          <td class="table-highlight-primary text-center"><%= register_icon %>Register</td>
         <% end %>
         <% if stat.last(3) != '008' %>
-          <td class="text-center">Manufacture</td>
+          <td class="text-center"><%= manufacture_icon %>Manufacture</td>
         <% else %>
-          <td class="table-highlight-primary text-center">Manufacture</td>
+          <td class="table-highlight-primary text-center"><%= manufacture_icon %>Manufacture</td>
         <% end %>
         <% if stat.last(3) != '009' %>
-          <td class="text-center">Logistics</td>
+          <td class="text-center"><%= logistics_icon %>Logistics</td>
         <% else %>
-          <td class="table-highlight-primary text-center">Logistics</td>
+          <td class="table-highlight-primary text-center"><%= logistics_icon %>Logistics</td>
         <% end %>
       </tr>
     <% end %>
