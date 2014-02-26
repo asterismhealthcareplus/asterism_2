@@ -8,7 +8,7 @@
   <table class="table table-striped">
     <% stats.each do |stat| %>
       <tr>
-        <td><%= "Product #{stat.first(5)}" %></td>
+        <td class="row-heading"><%= "Product #{stat.first(5)}" %></td>
         <% if stat.last(3) != '001' %>
           <td class="text-center">Concept</td>
         <% else %>
