@@ -20,6 +20,7 @@ html {
 
 body {
 	padding-top: 30px;
+	font-family: "Avenir Light";
 }
 
 section {
@@ -125,6 +126,10 @@ footer ul li {
 
 td {
 	color: $gray-light;
+}
+
+.table_icon {
+	width: 48px;
 }
 
 .row-heading {
