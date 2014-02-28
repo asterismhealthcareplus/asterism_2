@@ -133,8 +133,21 @@ td {
 }
 
 .row-heading {
-	color: $gray-darker;
-	font-weight: bold;
+	color: $gray-light;
+	font-weight: normal;
+
+	.product-code {
+		font-size: x-large;
+		color: $gray-darker;
+		font-weight: bold;
+	}
+}
+
+.btn-default {
+	color: $gray-light;
+  background-color: transparent;
+  border-color: rgb(204, 204, 204);
+  border-radius: 20px;
 }
 
 .table-highlight-primary {
@@ -142,6 +155,7 @@ td {
 	color: #ffffff;
 	border-radius: 20px;
 }
+
 
 
 

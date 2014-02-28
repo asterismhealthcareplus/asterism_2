@@ -8,51 +8,91 @@
   <table class="table table-striped">
     <% stats.each do |stat| %>
       <tr>
-        <td class="row-heading"><%= "Product #{stat.first(5)}" %></td>
+        <td class="row-heading">
+          Product
+          <br/>
+          <span class="product-code"><%= "#{stat.first(5)}" %></span>
+        </td>
         <% if stat.last(3) != '001' %>
-          <td class="text-center"><%= concept_icon %><br/>Concept</td>
+          <% @table_icon = concept_icon %>
+          <% @step = 'Concept' %>
+          <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
-          <td class="table-highlight-primary text-center"><%= concept_icon %><br/>Concept</td>
+          <% @tabl_icon = concept_icon %>
+          <% @step = 'Concept' %>
+          <%= render 'static_pages/table_partials/table_button_highlight' %>
         <% end %>
         <% if stat.last(3) != '002' %>
-          <td class="text-center"><%= negotiate_icon %><br/>Negotiate</td>
+          <% @table_icon = negotiate_icon %>
+          <% @step = 'Negotiate' %>
+          <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
-          <td class="table-highlight-primary text-center"><%= negotiate_icon %><br/>Negotiate</td>
+          <% @table_icon = negotiate_icon %>
+          <% @step = 'Negotiate' %>
+          <%= render 'static_pages/table_partials/table_button_highlight' %>
         <% end %>
-        <% if stat.last(3) != '003' %>  
-          <td class="text-center"><%= agreement_icon %><br/>Agreement</td>
+        <% if stat.last(3) != '003' %>
+          <% @table_icon = agreement_icon %>
+          <% @step = 'Agreement' %>
+          <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
-          <td class="table-highlight-primary text-center"><%= agreement_icon %><br/>Agreement</td>
+          <% @step = 'Agreement' %>
+          <% @table_icon = agreement_icon %>
+          <%= render 'static_pages/table_partials/table_button_highlight' %>
         <% end %>
         <% if stat.last(3) != '004' %>
-          <td class="text-center"><%= review_icon %><br/>Review</td>
+          <% @table_icon = review_icon %>
+          <% @step = 'Review' %>
+          <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
-          <td class="table-highlight-primary text-center"><%= review_icon %><br/>Review</td>
+          <% @table_icon = review_icon %>
+          <% @step = 'Review' %>
+          <%= render 'static_pages/table_partials/table_button_highlight' %>
         <% end %>
         <% if stat.last(3) != '005' %>
-          <td class="text-center"><%= formulate_icon %><br/>Formulate</td>
+          <% @table_icon = formulate_icon %>
+          <% @step = 'Formulate' %>
+          <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
-          <td class="table-highlight-primary text-center"><%= formulate_icon %><br/>Formulate</td>
+          <% @table_icon = formulate_icon %>
+          <% @step = 'Formulate' %>
+          <%= render 'static_pages/table_partials/table_button_highlight' %>
         <% end %>
         <% if stat.last(3) != '006' %>
-          <td class="text-center"><%= sample_icon %><br/>Sample</td>
+          <% @table_icon = sample_icon %>
+          <% @step = 'Sample' %>
+          <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
-          <td class="table-highlight-primary text-center"><%= sample_icon %><br/>Sample</td>
+          <% @table_icon = sample_icon %>
+          <% @step = 'Sample' %>
+          <%= render 'static_pages/table_partials/table_button_highlight' %>
         <% end %>
         <% if stat.last(3) != '007' %>
-          <td class="text-center"><%= register_icon %><br/>Register</td>
+          <% @table_icon = register_icon %>
+          <% @step = 'Register' %>
+          <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
-          <td class="table-highlight-primary text-center"><%= register_icon %><br/>Register</td>
+          <% @table_icon = register_icon %>
+          <% @step = 'Register' %>
+          <%= render 'static_pages/table_partials/table_button_highlight' %>
         <% end %>
         <% if stat.last(3) != '008' %>
-          <td class="text-center"><%= manufacture_icon %><br/>Manufacture</td>
+          <% @table_icon = manufacture_icon %>
+          <% @step = 'Manufacture' %>
+          <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
-          <td class="table-highlight-primary text-center"><%= manufacture_icon %><br/>Manufacture</td>
+          <% @table_icon = manufacture_icon %>
+          <% @step = 'Manufacture' %>
+          <%= render 'static_pages/table_partials/table_button_highlight' %>
         <% end %>
         <% if stat.last(3) != '009' %>
-          <td class="text-center"><%= logistics_icon %><br/>Logistics</td>
+          <% @table_icon = logistics_icon %>
+          <% @step = 'Logistics' %>
+          <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
-          <td class="table-highlight-primary text-center"><%= logistics_icon %><br/>Logistics</td>
+          <% @table_icon = logistics_icon %>
+          <% @step = 'Logistics' %>
+          <%= render 'static_pages/table_partials/table_button_highlight' %>
         <% end %>
       </tr>
     <% end %>
