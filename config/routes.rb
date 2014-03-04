@@ -12,6 +12,8 @@ Asterism2::Application.routes.draw do
   # about_us page
   get '/about_us', to: 'static_pages#about_us'
 
+  get '/all_users', to: 'static_pages#all_users'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -9,4 +9,8 @@ class StaticPagesController < ApplicationController
 
 	def about_us
 	end
+
+	def all_users
+		@users = User.all
+	end
 end
