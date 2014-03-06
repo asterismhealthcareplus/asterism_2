@@ -6,6 +6,22 @@
 
 <div class="table-responsive">
   <table class="table table-striped">
+   
+    <%# Begin table headings %>
+    <tr>
+      <th></th>
+      <th class="text-center">Concept</th>
+      <th class="text-center">Negotiate</th>
+      <th class="text-center">Agreement</th>
+      <th class="text-center">Review</th>
+      <th class="text-center">Formulate</th>
+      <th class="text-center">Sample</th>
+      <th class="text-center">Register</th>
+      <th class="text-center">Manufacture</th>
+      <th class="text-center">Logistics</th>
+    </tr>
+
+    <%# Begin taking each product one by one and running through each of the table column cells %>
     <% stats.each do |stat| %>
       <tr>
         <td class="row-heading">

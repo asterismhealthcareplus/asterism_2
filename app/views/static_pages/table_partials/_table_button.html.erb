@@ -1,7 +1,17 @@
 <td class="text-center">
   <div class="btn-group">
+
+<%
+=begin
+%> #commenting out old button with caption @step
     <button type="button" class="btn btn-default no-button-border dropdown-toggle" data-toggle="dropdown">
       <%= @table_icon %><br/><%= @step %><span class="caret"></span>
+    </button>
+<%
+=end
+%>
+    <button type="button" class="btn btn-default no-button-border dropdown-toggle" data-toggle="dropdown">
+      <%= @table_icon %><%# <span class="caret"></span> %>
     </button>
     <ul class="dropdown-menu" role="menu">
       <li><a href="#">Action</a></li>

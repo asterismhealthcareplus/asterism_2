@@ -11,6 +11,26 @@ $grayMediumLight: #eaeaea;
 }
 
 
+/* coloring for the flashing/blinking effect*/
+@-webkit-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:$brand-info;}        
+    100% {background-color:none;}
+}
+
+@-moz-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:$brand-info;}        
+    100% {background-color:none;}
+}
+
+@-ms-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:$brand-info;}        
+    100% {background-color:none;}
+}
+
+
 
 /* ========= universal =========== */
 
@@ -150,6 +170,8 @@ td {
 .btn-default {
 	color: $gray-light;
   background-color: transparent;
+  padding-bottom: 15px;
+  padding-top: 15px;
   border-color: rgb(204, 204, 204);
   border-radius: 20px;
 }
@@ -244,6 +266,21 @@ td {
     border-color: #eed3d7;
     color: #b94a48;
     text-align: left;
+}
+
+
+/* flashing (blinking) effect, see mixins/variables to change colors */
+.flash{
+
+  -moz-animation: flash 3s ease-out;
+  -moz-animation-iteration-count: infinite;
+
+  -webkit-animation: flash 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+
+  -ms-animation: flash 3s ease-out;
+  -ms-animation-iteration-count: infinite;
+
 }
 
 
