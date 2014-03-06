@@ -11,9 +11,17 @@
 =end
 %>
 
-    <button type="button" class="btn btn-default dropdown-toggle no-button-border table-highlight-primary" data-toggle="dropdown">
+    <button type="button" class="btn btn-default dropdown-toggle no-button-border flash" data-toggle="dropdown">
       <%= @table_icon %><%# <span class="caret"></span> %>
     </button>
+
+    <%# jquery script to remove class "flash" from button %>
+    <script>
+      $('.flash').click(function(){
+          $(this).removeClass('flash');
+      });
+    </script>
+    
     <ul class="dropdown-menu" role="menu">
       <li><a href="#">Action</a></li>
       <li><a href="#">Another action</a></li>
