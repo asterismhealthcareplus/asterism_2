@@ -270,7 +270,7 @@ td {
 
 
 /* flashing (blinking) effect, see mixins/variables to change colors */
-.flash{
+.blink {
 
   -moz-animation: flash 3s ease-out;
   -moz-animation-iteration-count: infinite;
