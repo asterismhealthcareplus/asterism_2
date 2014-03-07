@@ -1,7 +1,14 @@
 <h1>Product Status</h1>
 
 
-<% stats = ['22341002', '43435009', '47478004', '12323001', '84565008'] %>
+
+<%# variables and method definitions %>
+<% stats = ['22341002', '43435009', '22343011', '47478004', '12323001', '84565008'] %>
+<% @n = 0 %>
+<% def increment_n %>
+  <% @n += 1 %>
+<% end %>
+
 
 
 <div class="table-responsive">
@@ -9,7 +16,7 @@
    
     <%# Begin table headings %>
     <tr>
-      <th></th>
+      <th class="text-center">Product</th>
       <th class="text-center">Concept</th>
       <th class="text-center">Negotiate</th>
       <th class="text-center">Agreement</th>
@@ -24,11 +31,61 @@
     <%# Begin taking each product one by one and running through each of the table column cells %>
     <% stats.each do |stat| %>
       <tr>
-        <td class="row-heading">
-          Product
-          <br/>
+        <td class="row-heading text-center">
           <span class="product-code"><%= "#{stat.first(5)}" %></span>
+          <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+            <% if stat.last(3) != '010' and stat.last(3) != '011' and stat.last(3) != '012' %>
+              <div class="panel-heading slim-heading">
+            <% else %>
+              <div class="panel-heading slim-heading blink">
+            <% end %>
+                <h4 class="panel-title">
+                  <%= content_tag :a, :'data-toggle' => "collapse", :'data-parent' => "#accordion", :href => "#collapse#{@n}" do %>
+                    Other processes
+                  <% end %>
+                </h4>
+              </div>
+              <%# Begin collapsible panel in row heading %>
+              <%= content_tag :div, id: "collapse#{@n}", class: "panel-collapse collapse" do %>
+                <%= content_tag :div, class: "panel-body" do %>
+                  <% if stat.last(3) != '010' %>
+                    <% @step = 'Design' %>
+                    <% @table_icon = design_icon %>
+                    <%= render 'static_pages/table_partials/table_button_no_td' %>
+                  <% else %>
+                    <% @step = 'Design' %>
+                    <% @table_icon = design_icon %>
+                    <%= render 'static_pages/table_partials/table_button_highlight_no_td' %>
+                  <% end %>
+                  <% if stat.last(3) != '011' %>
+                    <% @step = 'Print' %>
+                    <% @table_icon = print_icon %>
+                    <%= render 'static_pages/table_partials/table_button_no_td' %>
+                  <% else %>
+                    <% @step = 'Print' %>
+                    <% @table_icon = print_icon %>
+                    <%= render 'static_pages/table_partials/table_button_highlight_no_td' %>
+                  <% end %>
+                  <% if stat.last(3) != '012' %>
+                    <% @step = 'Procure' %>
+                    <% @table_icon = procure_icon %>
+                    <%= render 'static_pages/table_partials/table_button_no_td' %>
+                  <% else %>
+                    <% @step = 'Procure' %>
+                    <% @table_icon = procure_icon %>
+                    <%= render 'static_pages/table_partials/table_button_highlight_no_td' %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <%# incrementing pool n by 1 %>
+          <% increment_n %>
         </td>
+
+        <%# End of collapsible pannel and start of main status bar %>
         <% if stat.last(3) != '001' %>
           <% @table_icon = concept_icon %>
           <% @step = 'Concept' %>

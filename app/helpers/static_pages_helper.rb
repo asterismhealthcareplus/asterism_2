@@ -35,4 +35,16 @@ module StaticPagesHelper
 	def logistics_icon
 		image_tag("logistics72.png", class: "table_icon", alt: "logistics icon")
 	end
+
+	def design_icon
+		image_tag("design72.png", class: "table_icon", alt: "design icon")
+	end
+
+	def print_icon
+		image_tag("printing72.png", class: "table_icon", alt: "print icon")
+	end
+
+	def procure_icon
+		image_tag("ingredients72.png", class: "table_icon", alt: "procure icon")
+	end
 end

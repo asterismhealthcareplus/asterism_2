@@ -144,17 +144,28 @@ footer ul li {
 
 /* =========== tables ============= */
 
-td {
+
+
+th {
+	padding: 8px;
+	color: $gray;
+}
+
+tr td {
 	color: $gray-light;
+	padding: 0px;
 }
 
 .table_icon {
 	width: 48px;
+	padding-top: 5px;
+
 }
 
 .row-heading {
 	color: $gray-light;
 	font-weight: normal;
+
 
 	.product-code {
 		font-size: x-large;
@@ -171,7 +182,7 @@ td {
 	color: $gray-light;
   background-color: transparent;
   padding-bottom: 15px;
-  padding-top: 15px;
+  padding-top: 10px;
   border-color: rgb(204, 204, 204);
   border-radius: 20px;
 }
@@ -190,7 +201,9 @@ td {
 	color: $gray-darker;
 }
 
-
+.table-responsive {
+	overflow: visible;
+}
 
 
 
@@ -247,7 +260,22 @@ td {
 /* See more at: http://firdaus.grandexa.com/2013/09/twitter-bootstrap-3-multilevel-dropdown-menu/#sthash.N6FuEoSr.dpuf */
 
 
-			
+.slim-heading {
+	padding: 5px;
+	color: $gray-light;
+}
+
+.panel-title {
+	color: $gray;
+	font-size: 12px;
+}
+
+.panel-group .panel {
+	overflow: visible;
+}
+
+
+
 
 
 
