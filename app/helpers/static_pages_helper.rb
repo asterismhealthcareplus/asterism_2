@@ -47,4 +47,8 @@ module StaticPagesHelper
 	def procure_icon
 		image_tag("ingredients72.png", class: "table_icon", alt: "procure icon")
 	end
+
+	def purchaseorder_icon
+		image_tag("purchaseorder72.png", class: "table_icon", alt: "purchase order icon")
+	end
 end

@@ -25,7 +25,7 @@
         <th class="text-center">Formulate</th>
         <th class="text-center">Sample</th>
         <th class="text-center">Register</th>
-        <th class="text-center">Manufacture</th>
+        <th class="text-center">Purchase order</th>
         <th class="text-center">Logistics</th>
       </tr>
     </thead>
@@ -155,12 +155,12 @@
           <%= render 'static_pages/table_partials/table_button_highlight' %>
         <% end %>
         <% if stat.last(3) != '008' %>
-          <% @table_icon = manufacture_icon %>
-          <% @step = 'Manufacture' %>
+          <% @table_icon = purchaseorder_icon %>
+          <% @step = 'Purchase order' %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
-          <% @table_icon = manufacture_icon %>
-          <% @step = 'Manufacture' %>
+          <% @table_icon = purchaseorder_icon %>
+          <% @step = 'Purchase order' %>
           <%= render 'static_pages/table_partials/table_button_highlight' %>
         <% end %>
         <% if stat.last(3) != '009' %>
