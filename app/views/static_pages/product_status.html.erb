@@ -15,18 +15,23 @@
   <table class="table table-striped">
    
     <%# Begin table headings %>
-    <tr>
-      <th class="text-center">Product</th>
-      <th class="text-center">Concept</th>
-      <th class="text-center">Negotiate</th>
-      <th class="text-center">Agreement</th>
-      <th class="text-center">Review</th>
-      <th class="text-center">Formulate</th>
-      <th class="text-center">Sample</th>
-      <th class="text-center">Register</th>
-      <th class="text-center">Manufacture</th>
-      <th class="text-center">Logistics</th>
-    </tr>
+    <thead>
+      <tr>
+        <th class="text-center">Product</th>
+        <th class="text-center">Concept</th>
+        <th class="text-center">Negotiate</th>
+        <th class="text-center">Agreement</th>
+        <th class="text-center">Review</th>
+        <th class="text-center">Formulate</th>
+        <th class="text-center">Sample</th>
+        <th class="text-center">Register</th>
+        <th class="text-center">Manufacture</th>
+        <th class="text-center">Logistics</th>
+      </tr>
+    </thead>
+
+
+
 
     <%# Begin taking each product one by one and running through each of the table column cells %>
     <% stats.each do |stat| %>
@@ -48,7 +53,7 @@
               </div>
               <%# Begin collapsible panel in row heading %>
               <%= content_tag :div, id: "collapse#{@n}", class: "panel-collapse collapse" do %>
-                <%= content_tag :div, class: "panel-body" do %>
+                <%= content_tag :div, class: "panel-body", style: "white-space:nowrap;" do %>
                   <% if stat.last(3) != '010' %>
                     <% @step = 'Design' %>
                     <% @table_icon = design_icon %>
@@ -171,3 +176,4 @@
     <% end %>
   </table>
 </div>
+

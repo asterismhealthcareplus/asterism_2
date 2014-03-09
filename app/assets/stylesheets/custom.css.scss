@@ -112,10 +112,11 @@ p {
 /* ========== footer ========== */
 
 footer {
-	margin-top: 45px;
+	margin-top: 100px;
 	padding-top: 5px;
 	border-top: 1px solid $grayMediumLight;
 	color: $gray-light;
+	margin-bottom: 100px;
 }
 
 footer a {
@@ -202,7 +203,16 @@ tr td {
 }
 
 .table-responsive {
-	overflow: visible;
+	/* "overflow-y: visible;"" allows table be in scrollable (vertical and horizontal) view on small screen, 
+			yet scrolling will expand on overflow. To turn of scrolling and show full table even on small screen, 
+			put "overflow: visible;" */
+	overflow-y: visible;
+}
+
+table.floatThead-table {
+    border-top: none;
+    border-bottom: none;
+    background-color: #FFF;
 }
 
 
@@ -273,9 +283,6 @@ tr td {
 .panel-group .panel {
 	overflow: visible;
 }
-
-
-
 
 
 
