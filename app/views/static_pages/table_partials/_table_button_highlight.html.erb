@@ -15,12 +15,15 @@
       <%= @table_icon %><%# <span class="caret"></span> %>
     </button>
 
-    <%# jquery script to remove class .blink from button %>
+<%
+=begin %> # jquery script to remove class .blink from button 
     <script>
       $('.blink').click(function(){
           $(this).removeClass('blink');
       });
     </script>
+<%
+=end %>
     
     <ul class="dropdown-menu" role="menu">
       <li><a href="#">Action</a></li>
