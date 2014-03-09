@@ -38,6 +38,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# simple_form
+gem 'simple_form', '~> 3.0.1'
+
 # Production gems for heroku
 group :production do
 	gem 'pg'

@@ -1,4 +1,29 @@
 <h2>Sign in</h2>
+
+<%# using simple_form to create form %>
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :wrapper => :bootstrap3_horizontal, :html => { :class => 'form-horizontal' }) do |f| %>
+
+	<%= f.input :email, label_html: { class: 'col-sm-4' }, placeholder: 'yourname@example.com' %>
+	<%= f.input :password, label_html: { class: 'col-sm-4' } %>
+
+	<%= f.input :remember_me, as: :boolean, label_html: { class: 'col-sm-4' } %>
+
+
+	<%= f.submit "Sign in", class: 'btn btn-primary col-sm-offset-4' %>
+
+
+<% end %>
+<div class="row">
+	<div class="col-sm-offset-4">
+		<br/>
+		<%= render "devise/shared/links" %>
+	</div>
+</div>
+
+
+<%
+=begin %> #original form without simple_form
+
 <div class="row">
 	<div class="col-md-6 col-md-offset-4">
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
@@ -38,3 +63,8 @@
 	</div>
 </div>
 	
+<%
+=end
+%>
+
+
