@@ -14,6 +14,8 @@ gem 'bootstrap-sass', '~> 3.1.0'
 # Amazon web service SDK
 gem 'aws-sdk'
 
+gem 'country_select'
+
 group :development, :test do
 	gem 'sqlite3'
 end

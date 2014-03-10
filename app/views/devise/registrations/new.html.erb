@@ -1,5 +1,48 @@
 <h2>Sign up</h2>
 
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :wrapper => :bootstrap3_horizontal, :html => { :class => 'form-horizontal' }) do |f| %>
+	<div class="row">
+		<h4 class="col-sm-offset-4 col-sm-4">Account information</h4>
+		<p class="col-sm-offset-4 col-sm-4">This information will be required to sign in to your acount, please don't forget it</p>
+	</div>
+	<%= f.input :email, label_html: { class: 'col-sm-4' }, placeholder: 'yourname@example.com' %>
+	<%= f.input :password, label_html: { class: 'col-sm-4' } %>
+	<%= f.input :password_confirmation, label_html: { class: 'col-sm-4' } %>
+	<br/>
+
+	<div class="row">
+		<h4 class="col-sm-offset-4 col-sm-4">Personal information</h4>
+		<p class="col-sm-offset-4 col-sm-4">Just to let us know who you are</p>
+	</div>
+	<%= f.input :first_name, label: 'First Name', label_html: { class: 'col-sm-4' } %>
+	<%= f.input :last_name, label: 'Last Name', label_html: { class: 'col-sm-4' } %>
+	<br/>
+
+	<div class="row">
+		<h4 class="col-sm-offset-4 col-sm-4">Company information</h4>
+		<p class="col-sm-offset-4 col-sm-4">Please fill in the following information about the company you are representing</p>
+	</div>
+	<%= f.input :company, label: 'Company name', label_html: { class: 'col-sm-4' } %>
+	<%= f.input :office_country, label: 'Country', label_html: { class: 'col-sm-4' } %>
+	<%= f.input :office_city, label: 'City', label_html: { class: 'col-sm-4' } %>
+	<%= f.input :office_location, label: 'Address', label_html: { class: 'col-sm-4' } %>
+	<br/>
+	<br/>
+
+	<%= f.submit "Sign up", class: 'btn btn-primary col-sm-offset-4' %>
+
+<% end %>
+<div class="row">
+	<div class="col-sm-offset-4">
+		<br/>
+		<br/>
+		<p>Already have an account?<span><%= render "devise/shared/links" %></span></p>
+	</div>
+</div>
+
+<%
+=begin %> # Original sign up form
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -16,3 +59,6 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<%
+=end %>
