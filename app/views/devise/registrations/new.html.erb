@@ -1,6 +1,11 @@
 <h2>Sign up</h2>
 
+
+
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :wrapper => :bootstrap3_horizontal, :html => { :class => 'form-horizontal' }) do |f| %>
+
+	<%= f.error_notification %>
+
 	<div class="row">
 		<h4 class="col-sm-offset-4 col-sm-4">Account information</h4>
 		<p class="col-sm-offset-4 col-sm-4">This information will be required to sign in to your acount, please don't forget it</p>
