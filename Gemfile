@@ -6,11 +6,12 @@ ruby "2.1.0"
 gem 'rails', '4.0.2'
 
 # Installing Devise
-gem 'devise'
+gem 'devise', '~> 3.2.2'
 
 # Twitter-bootstrap
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.1.0'
 
+# Amazon web service SDK
 gem 'aws-sdk'
 
 group :development, :test do
@@ -30,7 +31,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 3.1.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
