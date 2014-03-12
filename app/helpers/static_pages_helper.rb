@@ -51,4 +51,28 @@ module StaticPagesHelper
 	def purchaseorder_icon
 		image_tag("purchaseorder72.png", class: "table_icon", alt: "purchase order icon")
 	end
+
+	def symbolize_keys_deep!(h)
+    h.keys.each do |k|
+        ks    = k.respond_to?(:to_sym) ? k.to_sym : k
+        h[ks] = h.delete k # Preserve order even when k == ks
+        symbolize_keys_deep! h[ks] if h[ks].kind_of? Hash
+    end
+	end
+
+	# This symbolizes even hashes inside an array.
+	def recursive_symbolize_keys!
+    symbolize_keys!
+    # symbolize each hash in .values
+    values.each{|h| h.recursive_symbolize_keys! if h.is_a?(Hash) }
+    # symbolize each hash inside an array in .values
+    values.select{|v| v.is_a?(Array) }.flatten.each{|h| h.recursive_symbolize_keys! if h.is_a?(Hash) }
+    self
+  end
+
+	def product_name
+		@alldonet_product_list.each do |product|
+			product[0..@product_list_count]['pn']
+		end
+	end
 end

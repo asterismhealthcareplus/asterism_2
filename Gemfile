@@ -44,6 +44,10 @@ gem 'jbuilder', '~> 1.2'
 # simple_form
 gem 'simple_form', '~> 3.0.1'
 
+gem 'json'
+
+gem 'httparty'
+
 # Production gems for heroku
 group :production do
 	gem 'pg'
