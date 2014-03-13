@@ -59,29 +59,41 @@
                   <% if product['st'] != 'design' %>
                     <% @step = 'Design' %>
                     <% @table_icon = design_icon %>
+                    <% @stat_level = @step.downcase.gsub(' ', '_') %>
+                    <% @table_highlight = false %>
                     <%= render 'static_pages/table_partials/table_button_no_td' %>
                   <% else %>
                     <% @step = 'Design' %>
                     <% @table_icon = design_icon %>
-                    <%= render 'static_pages/table_partials/table_button_highlight_no_td' %>
+                    <% @stat_level = @step.downcase.gsub(' ', '_') %>
+                    <% @table_highlight = true %>
+                    <%= render 'static_pages/table_partials/table_button_no_td' %>
                   <% end %>
                   <% if product['st'] != 'print' %>
                     <% @step = 'Print' %>
                     <% @table_icon = print_icon %>
+                    <% @stat_level = @step.downcase.gsub(' ', '_') %>
+                    <% @table_highlight = false %>
                     <%= render 'static_pages/table_partials/table_button_no_td' %>
                   <% else %>
                     <% @step = 'Print' %>
                     <% @table_icon = print_icon %>
-                    <%= render 'static_pages/table_partials/table_button_highlight_no_td' %>
+                    <% @stat_level = @step.downcase.gsub(' ', '_') %>
+                    <% @table_highlight = true %>
+                    <%= render 'static_pages/table_partials/table_button_no_td' %>
                   <% end %>
                   <% if product['st'] != 'procure' %>
                     <% @step = 'Procure' %>
                     <% @table_icon = procure_icon %>
+                    <% @stat_level = @step.downcase.gsub(' ', '_') %>
+                    <% @table_highlight = false %>
                     <%= render 'static_pages/table_partials/table_button_no_td' %>
                   <% else %>
                     <% @step = 'Procure' %>
                     <% @table_icon = procure_icon %>
-                    <%= render 'static_pages/table_partials/table_button_highlight_no_td' %>
+                    <% @stat_level = @step.downcase.gsub(' ', '_') %>
+                    <% @table_highlight = true %>
+                    <%= render 'static_pages/table_partials/table_button_no_td' %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -96,13 +108,13 @@
         <% if product['st'] != 'concept' %>
           <% @table_icon = concept_icon %>
           <% @step = 'Concept' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = false %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
           <% @table_icon = concept_icon %>
           <% @step = 'Concept' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = true %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% end %>
@@ -124,91 +136,91 @@
         <% if product['st'] != 'agreement' %>
           <% @table_icon = agreement_icon %>
           <% @step = 'Agreement' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = false %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
           <% @step = 'Agreement' %>
           <% @table_icon = agreement_icon %>
           <% @table_highlight = true %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% end %>
         <% if product['st'] != 'review' %>
           <% @table_icon = review_icon %>
           <% @step = 'Review' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = false %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
           <% @table_icon = review_icon %>
           <% @step = 'Review' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = true %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% end %>
         <% if product['st'] != 'formulate' %>
           <% @table_icon = formulate_icon %>
           <% @step = 'Formulate' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = false %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
           <% @table_icon = formulate_icon %>
           <% @step = 'Formulate' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = true %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% end %>
         <% if product['st'] != 'sample' %>
           <% @table_icon = sample_icon %>
           <% @step = 'Sample' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = false %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
           <% @table_icon = sample_icon %>
           <% @step = 'Sample' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = true %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% end %>
         <% if product['st'] != 'register' %>
           <% @table_icon = register_icon %>
           <% @step = 'Register' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = false %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
           <% @table_icon = register_icon %>
           <% @step = 'Register' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = true %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% end %>
         <% if product['st'] != 'purchaseorder' %>
           <% @table_icon = purchaseorder_icon %>
           <% @step = 'Purchase order' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = false %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
           <% @table_icon = purchaseorder_icon %>
           <% @step = 'Purchase order' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = true %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% end %>
         <% if product['st'] != 'logistics' %>
           <% @table_icon = logistics_icon %>
           <% @step = 'Logistics' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = false %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% else %>
           <% @table_icon = logistics_icon %>
           <% @step = 'Logistics' %>
-          <% @stat_level = @step.downcase.gsub(' ', '') %>
+          <% @stat_level = @step.downcase.gsub(' ', '_') %>
           <% @table_highlight = true %>
           <%= render 'static_pages/table_partials/table_button' %>
         <% end %>
