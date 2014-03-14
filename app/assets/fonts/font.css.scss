@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'ufontscomavenir35light';
+	src: font-url('./ufontscomavenir35light.eot');
+	src: font-local('ufontscomavenir35light'), font-url('./ufontscomavenir35light.woff') format('woff'), font-url('./ufontscomavenir35light.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_17516">Text with this font applied</p> */
+.fontsforweb_fontid_17516 {
+	font-family: 'ufontscomavenir35light' !important;
+}
+
+/* Font downloaded from FontsForWeb.com */
