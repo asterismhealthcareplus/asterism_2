@@ -52,6 +52,14 @@ module StaticPagesHelper
 		image_tag("purchaseorder72.png", class: "table_icon", alt: "purchase order icon")
 	end
 
+	def sample_contract_pic
+		image_tag("sample_contract.png", class: "oversize_png", alt: "sample contract picture")
+	end
+
+	def demo_age_pic
+		image_tag("demo_age.jpg", class: "oversize_png", alt: "demo age picture")
+	end
+
 	def symbolize_keys_deep!(h)
     h.keys.each do |k|
         ks    = k.respond_to?(:to_sym) ? k.to_sym : k

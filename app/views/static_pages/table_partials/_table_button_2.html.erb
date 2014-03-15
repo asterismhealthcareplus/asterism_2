@@ -1,3 +1,42 @@
+<%# Remove below line after JHBT!!!!!!!!!!!!!!!! %>
+<div class="modal fade" id="agreement_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">New Proposal</h4>
+      </div>
+      <div class="modal-body">
+        <%= link_to sample_contract_pic, 'assets/sample_contract.png' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="age_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Demographics - Age</h4>
+      </div>
+      <div class="modal-body">
+        <%= link_to demo_age_pic, 'assets/demo_age.jpg' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<%# Remove above line after JHBT!!!!!!!!!!!!!!!! %>
+
 
 <td class="text-center">
 
@@ -29,6 +68,12 @@
 <%########################## Begin level 1 dropdown ################################%>
         <% @alldonet_product_desc['wsc'][@stat_level].each do |key, value| %>
           <% unless key[0] == '$' %>
+            <%# remove below lines after JHBT!!!!!!!!!!!!!!! %>
+            <% if @alldonet_product_desc['pn'] == 'kampoZ' and key.humanize == 'Current agreement' %>
+              <li class="dropdown-submenu" data-toggle="modal" data-target="#agreement_modal"><a tabindex="-1" class="pointer"><%= 'New proposal' %></a></li>
+            <% end %>
+
+            <%# remove above lines after JHBT!!!!!!!!!!!!!!!! %>
             <li class="dropdown-submenu"><a tabindex="-1" href="#"><%= key.humanize %></a>
               <ul class="dropdown-menu">
 <%################################ Begin level 2 submenu #####################%>
@@ -47,39 +92,44 @@
                       <% end %>
                     <% end %>
 
-                    <% else %>
-                      <li class="dropdown-submenu"><a tabindex="-1" href="#"><%= key2.to_s.humanize %></a>
-                    <% end %>
-                        <ul class="dropdown-menu">
+                  <% else %>
+                    <li class="dropdown-submenu"><a tabindex="-1" href="#"><%= key2.to_s.humanize %></a>
+                  <% end %>
+                      <ul class="dropdown-menu">
 
-  <%############################### Begin level 3 submenu ####################%>
-                          <% if value2.is_a? String %>
+<%############################### Begin level 3 submenu ####################%>
+                        <% if value2.is_a? String %>
 
-                            <li><a tabindex="-1" href="#"><%= value2.humanize %></a></li>
-                          <% else %>
-                            <% @alldonet_product_desc['wsc'][@stat_level][key][key2].each do |key3, value3| %> 
-                              <% if key3[0] == '$' %>
-                                <% if value3.to_s.humanize[0] != '[' %>
-                                  <% if key3.to_s == '$input' %>
-                                    <li><a tabindex="-1" href="#"><i><%= 'Input ' + value3.to_s + '...' %></i></a></li>
-                                  <% else %>
+                          <li><a tabindex="-1" href="#"><%= value2.humanize %></a></li>
+                        <% else %>
+                          <% @alldonet_product_desc['wsc'][@stat_level][key][key2].each do |key3, value3| %> 
+                            <% if key3[0] == '$' %>
+                              <% if value3.to_s.humanize[0] != '[' %>
+                                <% if key3.to_s == '$input' %>
+                                  <li><a tabindex="-1" href="#"><i><%= 'Input ' + value3.to_s + '...' %></i></a></li>
+                                <% else %>
 
-                                    <li><a tabindex="-1" href="#"><%= value3.to_s.humanize %></a>
-                                  <% end %>
-
+                                  <li><a tabindex="-1" href="#"><%= value3.to_s.humanize %></a>
                                 <% end %>
 
-                              <% else %>
-                                <li><a tabindex="-1" href="#"><%= key3.to_s.humanize %></a>
-                                
                               <% end %>
-                                </li>
+                            <%# remove below lines after JHBT!!!!!!!!!!!!!!! %>
+                            <% elsif @alldonet_product_desc['pn'] == 'kampoX' and key3.to_s.humanize == 'Age' %>
+                              <li class="dropdown-submenu" data-toggle="modal" data-target="#age_modal"><a tabindex="-1" class="pointer"><%= 'Age' %></a></li>
+
+                            <%# remove above lines after JHBT!!!!!!!!!!!!!!!! %>
+                            <% else %>
+
+                              <li><a tabindex="-1" href="#"><%= key3.to_s.humanize %></a>
+                              
                             <% end %>
-                            <li><a href="#"> Add new field</a></li>
+                              </li>
                           <% end %>
-  <%############################### End level 3 submenu ####################%>
-                        </ul>
-                      </li>
+                          <li><a href="#"> Add new field</a></li>
+                        <% end %>
+<%############################### End level 3 submenu ####################%>
+                      </ul>
+                    </li>
 
                   <% end %>
                 <% end %>
