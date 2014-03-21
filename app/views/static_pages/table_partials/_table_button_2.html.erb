@@ -1,8 +1,6 @@
 
 <td class="text-center">
-
   <div class="btn-group">
-
 <%
 =begin
 %> #commenting out old button with caption @step
@@ -21,8 +19,6 @@
       <%= @table_icon %><%# <span class="caret"></span> %>
     </button>
   <% end %>
-
-  
 <%########################## Begin Dropdown ###########################################%>
     <ul class="dropdown-menu" role="menu">
       <% if !@alldonet_product_desc['wsc'][@stat_level].nil? and !@alldonet_product_desc['wsc'][@stat_level]['$keys'].nil? %>
@@ -34,7 +30,6 @@
                 <ul class="dropdown-menu">
   <%################################ Begin level 2 submenu #####################%>
                   <% if value.is_a? String %>
-
                     <li><a tabindex="-1" href="#"><%= value.humanize %></a></li>
                   <% else %>
                     <% if !@alldonet_product_desc['wsc'][@stat_level][key].nil? and !@alldonet_product_desc['wsc'][@stat_level][key]['$keys'].nil? %>
@@ -45,19 +40,15 @@
                             <% if key2.to_s == '$input' %>
                               <li><a tabindex="-1" href="#"><i><%= 'Input ' + value2.to_s.humanize.downcase + '...' %></i></a></li>
                             <% else %>
-
                               <li><a tabindex="-1" href="#"><%= value2.to_s.humanize %></a>
                             <% end %>
                           <% end %>
-
                         <% else %>
                           <li class="dropdown-submenu"><a tabindex="-1" href="#"><%= key2.to_s.humanize %></a>
                         <% end %>
                             <ul class="dropdown-menu">
-
       <%############################### Begin level 3 submenu ####################%>
                               <% if value2.is_a? String %>
-
                                 <li><a tabindex="-1" href="#"><%= value2.humanize %></a></li>
                               <% else %>
                                 <% if !@alldonet_product_desc['wsc'][@stat_level][key][key2].nil? and !@alldonet_product_desc['wsc'][@stat_level][key][key2]['$keys'].nil? %>
@@ -68,15 +59,11 @@
                                         <% if key3.to_s == '$input' %>
                                           <li><a tabindex="-1" href="#"><i><%= 'Input ' + value3.to_s + '...' %></i></a></li>
                                         <% else %>
-
                                           <li><a tabindex="-1" href="#"><%= value3.to_s.humanize %></a>
                                         <% end %>
-
                                       <% end %>
                                     <% else %>
-
                                       <li><a tabindex="-1" href="#"><%= key3.to_s.humanize %></a>
-                                      
                                     <% end %>
                                       </li>
                                   <% end %>
@@ -86,7 +73,6 @@
       <%############################### End level 3 submenu ####################%>
                             </ul>
                           </li>
-
                         <% end %>
                       <% end %>
                     <% end %>  
