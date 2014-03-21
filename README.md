@@ -1,3 +1,4 @@
-Asterism 2
+<h1>Web Portal in heavy development for Asterism</h1>
 
-Second attempt at webportal for Asterism.
+<b>Known Issues:</b>
+1. Safari browser does not render table in the center. Only happens when javascript is used to float the thead.

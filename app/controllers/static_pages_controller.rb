@@ -10,6 +10,8 @@ class StaticPagesController < ApplicationController
 	def product_status
 		@alldonet_product_list = JSON.load(open('https://trm-dot-alldonetutils.appspot.com/c/asterism/prodlist/?u=asterismui&pw=foobar'))
 		@product_list_count = @alldonet_product_list.count
+		@product_desc_part_1 = "https://trm-dot-alldonetutils.appspot.com/c/asterism/getprod/?pk="
+		@product_desc_part_2 = "&u=asterismui&pw=foobar"
 	end
 
 	def about_us
