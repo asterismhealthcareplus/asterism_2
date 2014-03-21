@@ -1,0 +1,102 @@
+  <div class="btn-group">
+<%
+=begin
+%> #commenting out old button with caption @step
+    <button type="button" class="btn btn-default no-button-border dropdown-toggle" data-toggle="dropdown">
+      <%= @table_icon %><br/><%= @step %><span class="caret"></span>
+    </button>
+<%
+=end
+%>
+  <% if @table_highlight == true %>
+    <button type="button" class="btn btn-default no-button-border dropdown-toggle blink" data-toggle="dropdown">
+      <%= @table_icon %>
+      <% if @inside_panel == true %>
+        <br/><%= @step %>
+      <% end %>
+    </button>
+  <% else %>
+    <button type="button" class="btn btn-default no-button-border dropdown-toggle" data-toggle="dropdown">
+      <%= @table_icon %>
+      <% if @inside_panel == true %>
+        <br/><%= @step %>
+      <% end %>
+    </button>
+  <% end %>
+<%########################## Begin Dropdown ###########################################%>
+    <ul class="dropdown-menu" role="menu">
+<%########################## Begin level 1 dropdown ################################%>      
+      <% if !@alldonet_product_desc['wsc'][@stat_level].nil? and !@alldonet_product_desc['wsc'][@stat_level]['$keys'].nil? %>
+        <% @alldonet_product_desc['wsc'][@stat_level]['$keys'].each do |key| %>
+          <% value = @alldonet_product_desc['wsc'][@stat_level][key] %>
+          <% if key[0] == '$' %>
+            <% if value.to_s.humanize[0] != '[' %>
+              <% if key.to_s == '$input' %>
+                <li><a tabindex="-1" href="#"><i><%= 'Input ' + value2.to_s.humanize.downcase + '...' %></i></a></li>
+              <% else %>
+                <li><a tabindex="-1" href="#"><%= value.to_s.humanize %></a>
+              <% end %>
+            <% end %>
+          <% else %>
+            <li class="dropdown-submenu"><a tabindex="-1" href="#"><%= key.humanize %></a>
+          <% end %>
+              <ul class="dropdown-menu">
+<%################################ Begin level 2 submenu #####################%>
+                <% if value.is_a? String %>
+                  <li><a tabindex="-1" href="#"><%= value.humanize %></a></li>
+                <% else %>
+                  <% if !@alldonet_product_desc['wsc'][@stat_level][key].nil? and !@alldonet_product_desc['wsc'][@stat_level][key]['$keys'].nil? %>
+                    <% @alldonet_product_desc['wsc'][@stat_level][key]['$keys'].each do |key2| %>
+                      <% value2 = @alldonet_product_desc['wsc'][@stat_level][key][key2] %> 
+                      <% if key2[0] == '$' %>
+                        <% if value2.to_s.humanize[0] != '[' %>
+                          <% if key2.to_s == '$input' %>
+                            <li><a tabindex="-1" href="#"><i><%= 'Input ' + value2.to_s.humanize.downcase + '...' %></i></a></li>
+                          <% else %>
+                            <li><a tabindex="-1" href="#"><%= value2.to_s.humanize %></a>
+                          <% end %>
+                        <% end %>
+                      <% else %>
+                        <li class="dropdown-submenu"><a tabindex="-1" href="#"><%= key2.to_s.humanize %></a>
+                      <% end %>
+                          <ul class="dropdown-menu">
+    <%############################### Begin level 3 submenu ####################%>
+                            <% if value2.is_a? String %>
+                              <li><a tabindex="-1" href="#"><%= value2.humanize %></a></li>
+                            <% else %>
+                              <% if !@alldonet_product_desc['wsc'][@stat_level][key][key2].nil? and !@alldonet_product_desc['wsc'][@stat_level][key][key2]['$keys'].nil? %>
+                                <% @alldonet_product_desc['wsc'][@stat_level][key][key2]['$keys'].each do |key3| %>
+                                  <% value3 = @alldonet_product_desc['wsc'][@stat_level][key][key2][key3] %> 
+                                  <% if key3[0] == '$' %>
+                                    <% if value3.to_s.humanize[0] != '[' %>
+                                      <% if key3.to_s == '$input' %>
+                                        <li><a tabindex="-1" href="#"><i><%= 'Input ' + value3.to_s.humanize.downcase + '...' %></i></a></li>
+                                      <% else %>
+                                        <li><a tabindex="-1" href="#"><%= value3.to_s.humanize %></a>
+                                      <% end %>
+                                    <% end %>
+                                  <% else %>
+                                    <li><a tabindex="-1" href="#"><%= key3.to_s.humanize %></a>
+                                  <% end %>
+                                    </li>
+                                <% end %>
+                              <% end %>
+                            <% end %>
+                            <li><a href="#"> Add new field</a></li>
+    <%############################### End level 3 submenu ####################%>
+                          </ul>
+                        </li>
+                    <% end %>
+                  <% end %>
+                <% end %>    
+                <li><a href="#"> Add new field</a></li>
+<%############################### End level 2 submenu ####################%>                
+              </ul>
+            </li>
+        <% end %>
+      <% end %>
+      <li><a href="#">Add new field</a></li>
+<%########################## End level 1 dropdown ###################%>      
+    </ul>
+<%########################## End Dropdown ###########################################%>
+  </div>
