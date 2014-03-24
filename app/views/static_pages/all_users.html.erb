@@ -1,5 +1,34 @@
-<ul>
-	<% @users.each do |user| %>
-		<li><%= user.email %></li>
-	<% end %>
-</ul>
+<h1>Users</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+   
+    <%########## Begin table headings #####################%>
+    <thead>
+      <tr>
+        <th class="text-center">Last name</th>
+        <th class="text-center">First name</th>
+        <th class="text-center">Email</th>
+        <th class="text-center">Company name</th>
+        <th class="text-center">Company's city</th>
+        <th class="text-center">Company's address</th>
+        <th class="text-center">Company's country</th>
+      </tr>
+    </thead>
+
+    <%########### Begin table cells in rows ###########%>
+    <tr>
+			<ul>
+				<% @users.each do |user| %>
+					<td class="text-center"><%= user.last_name %></td>
+					<td class="text-center"><%= user.first_name %></td>
+					<td class="text-center"><%= user.email %></td>
+					<td class="text-center"><%= user.company %></td>
+					<td class="text-center"><%= user.office_city %></td>
+					<td class="text-center"><%= user.office_location %></td>
+					<td class="text-center"><%= user.office_country %></td>
+				<% end %>
+			</ul>
+		</tr>
+	</table>
+</div>
