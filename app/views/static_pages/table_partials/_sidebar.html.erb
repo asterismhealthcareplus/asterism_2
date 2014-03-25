@@ -1,0 +1,21 @@
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default fixed" id="collapsible_sidebar">
+    <div class="panel-heading slim-heading">
+      <h4 class="panel-title text-center">
+        <%= content_tag :a, :'data-toggle' => "collapse", :'data-parent' => "#accordion", :href => "#collapsesidebar", id: "collapsible_side_panel" do %>
+          Sidebar
+        <% end %>
+      </h4>
+    </div>
+    <%############### Begin collapsible panel's collapsed contents ################%>
+    <%= content_tag :div, id: "collapsesidebar", class: "panel-collapse collapse" do %>
+      <%= content_tag :div, id: "max-sidebar", class: "panel-body" do %>
+        <%= form_tag "temporary" do %>
+          <%= text_area_tag "#", "Input Value:", style: "height:300px;width:100%"%>
+          <br/>
+          <%= submit_tag "Save" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

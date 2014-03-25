@@ -285,10 +285,22 @@ table.floatThead-table {
 .panel-title {
 	color: $gray;
 	font-size: 12px;
+	width: 100%;
 }
 
 .panel-group .panel {
 	overflow: visible;
+}
+
+
+
+/* =============== Collapsible Sidebar ================= */
+
+.fixed
+{
+    position: fixed;
+    right: 0px;
+    top: 85px;
 }
 
 
