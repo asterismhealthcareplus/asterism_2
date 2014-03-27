@@ -10,5 +10,10 @@ class User < ActiveRecord::Base
   validates :office_location, presence: true
   validates :office_country, presence: true
   validates :office_city, presence: true
+
+
+  def admin?
+    admin
+  end
   
 end

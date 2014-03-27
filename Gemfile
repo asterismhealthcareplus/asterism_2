@@ -44,6 +44,9 @@ gem 'jbuilder', '~> 1.2'
 # simple_form
 gem 'simple_form', '~> 3.0.1'
 
+# cancancan (continuation of cancan authorization gem)
+gem 'cancancan', '~> 1.7'
+
 gem 'json'
 
 gem 'httparty'
