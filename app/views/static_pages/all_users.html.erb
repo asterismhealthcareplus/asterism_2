@@ -13,13 +13,14 @@
         <th class="text-center">Company's city</th>
         <th class="text-center">Company's address</th>
         <th class="text-center">Company's country</th>
+        <th class="text-center">Role</th>
       </tr>
     </thead>
 
     <%########### Begin table cells in rows ###########%>
-    <tr>
-			<ul>
-				<% @users.each do |user| %>
+    <% @users.each do |user| %> 
+      <tr>
+  			<ul>
 					<td class="text-center"><%= user.last_name %></td>
 					<td class="text-center"><%= user.first_name %></td>
 					<td class="text-center"><%= user.email %></td>
@@ -27,8 +28,18 @@
 					<td class="text-center"><%= user.office_city %></td>
 					<td class="text-center"><%= user.office_location %></td>
 					<td class="text-center"><%= user.office_country %></td>
-				<% end %>
-			</ul>
-		</tr>
+          <td class="text-center"><% if user.admin == true %>
+                                    <%= 'Admin' %>
+                                  <% end %>
+                                  <% if user.employee == true %>
+                                    <%= 'Employee' %>
+                                  <% end %>
+                                  <% if user.customer == true %>
+                                    <%= 'Customer' %>
+                                  <% end %>
+          </td>
+  			</ul>
+  		</tr>
+    <% end %>
 	</table>
 </div>

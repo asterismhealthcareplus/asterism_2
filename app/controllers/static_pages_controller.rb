@@ -19,5 +19,8 @@ class StaticPagesController < ApplicationController
 
 	def all_users
 		@users = User.all
+		if current_user.admin == false
+			redirect_to root_path
+		end
 	end
 end
