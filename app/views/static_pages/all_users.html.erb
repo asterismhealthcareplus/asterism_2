@@ -6,6 +6,7 @@
     <%########## Begin table headings #####################%>
     <thead>
       <tr>
+        <th class="text-center">User ID</th>
         <th class="text-center">Last name</th>
         <th class="text-center">First name</th>
         <th class="text-center">Email</th>
@@ -14,6 +15,7 @@
         <th class="text-center">Company's address</th>
         <th class="text-center">Company's country</th>
         <th class="text-center">Role</th>
+        <th class="text-center">Edit</th>
       </tr>
     </thead>
 
@@ -21,6 +23,7 @@
     <% @users.each do |user| %> 
       <tr>
   			<ul>
+          <td class="text-center"><%= user.id %></td>
 					<td class="text-center"><%= user.last_name %></td>
 					<td class="text-center"><%= user.first_name %></td>
 					<td class="text-center"><%= user.email %></td>
@@ -38,6 +41,7 @@
                                     <%= 'Customer' %>
                                   <% end %>
           </td>
+          <td class="text-center"><%= link_to 'Edit', edit_user_path(user) %></td>
   			</ul>
   		</tr>
     <% end %>

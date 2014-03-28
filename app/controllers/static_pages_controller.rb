@@ -19,8 +19,9 @@ class StaticPagesController < ApplicationController
 
 	def all_users
 		@users = User.all
-		if current_user.admin == false
+		unless current_user.admin? or current_user.employee?
 			redirect_to root_path
+			flash[:error] = 'You do not have the proper permission level to view that page'
 		end
 	end
 end

@@ -28,7 +28,7 @@ class UserController < ApplicationController
     params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
     if @user.update_attributes(update_params)
       flash[:notice] = "Successfully updated User."
-      redirect_to root_path
+      redirect_to all_users_path
     else
       render :action => 'edit'
     end
@@ -44,7 +44,8 @@ class UserController < ApplicationController
 
   private
    
-  def update_params
-    params.require(:user).permit(:company, :first_name, :last_name, :office_location, :office_city, :office_country) 
+  def update_params #permitted parameters for update action. This is required for rails 4's Strong Parameter feature 
+    params.require(:user).permit(:company, :first_name, :last_name, :office_location, :office_city, :office_country, :employee, :customer, :admin) 
   end
 end
+

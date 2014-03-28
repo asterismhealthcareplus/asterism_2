@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   	product_status_path
   end
 
-  # Configure attributes that users may access in order to sign up or update their account
+  # Configure attributes that users may access in order to sign up or update their account.
+  # These permitted parameters are required for Devise authentication when using with Rails 4 app.
   def configure_permitted_parameters
   	devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name << :office_location << :office_country << :office_city << :company
   	devise_parameter_sanitizer.for(:account_update) << :first_name << :last_name << :office_location << :office_country << :office_city << :company

@@ -15,5 +15,9 @@ class User < ActiveRecord::Base
   def admin?
     admin
   end
+
+  def employee?
+    employee
+  end
   
 end
