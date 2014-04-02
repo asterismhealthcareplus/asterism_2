@@ -76,7 +76,7 @@
 
 1. All rails 4 apps now uses strong parameters to control mass assignments rather than `attribute_accessible` found in rails 3 apps. See https://github.com/rails/strong_parameters
 
-2. Strong parameters are configured in the controller. For example, in the user_controller.rb there is this line at the bottom:
+2. Strong parameters are configured in the controller. For example, in the user_controller.rb there is this line at the bottom (notice how the below code is allowing the sanitization/change of attributes for the :user - :company, :first_name, :last_name, :office_location, :office_city, :office_country, :employee, :customer, :admin:):
 ```ruby  
 	private
    
@@ -84,16 +84,15 @@
     params.require(:user).permit(:company, :first_name, :last_name, :office_location, :office_city, :office_country, :employee, :customer, :admin) 
   end
 ```
-The above code means the following items can be sanitized/changed in the :user model: :company, :first_name, :last_name, :office_location, :office_city, :office_country, :employee, :customer, :admin
 
-3. NOTE! That in order to edit strong parameters for the default devise's registrations_controller, you must add the strong parameters in app/controllers/application_controller.rb. In the application_controller.rb you will see these methods:
+
+3. NOTE! That in order to edit strong parameters for the default devise's registrations_controller, you must add the strong parameters in app/controllers/application_controller.rb. In the application_controller.rb you will see these methods (notice how attributes that may be edited during account update or sign up are being appended to the respective sanitizer):
 ```ruby
   def configure_permitted_parameters
   	devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name << :office_location << :office_country << :office_city << :company
   	devise_parameter_sanitizer.for(:account_update) << :first_name << :last_name << :office_location << :office_country << :office_city << :company
   end
 ```
-Add items that may be edited or used for sign up by appending the item to the respective sanitizer.
 
 
 ##Automated Testing:
