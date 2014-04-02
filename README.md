@@ -86,7 +86,7 @@
 ```
 
 
-3. NOTE! That in order to edit strong parameters for the default devise's registrations_controller, you must add the strong parameters in app/controllers/application_controller.rb. In the application_controller.rb you will see these methods (notice how attributes that may be edited during account update or sign up are being appended to the respective sanitizer):
+3. NOTE! That in order to edit strong parameters for the default devise's registrations_controller, you must add the strong parameters in app/controllers/application_controller.rb. In the application_controller.rb you will see these methods below (notice how attributes that may be edited during account update or sign up are being appended to the respective sanitizer):
 ```ruby
   def configure_permitted_parameters
   	devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name << :office_location << :office_country << :office_city << :company
