@@ -1,55 +1,11 @@
-
-
 <%#= render 'static_pages/table_partials/sidebar' %>
 
 <%# MODAL for adding new item %>
-<div class="modal fade" id="modal_add_item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Form</h4>
-      </div>
-      <div class="modal-body">
-        <form method="" action="">
-          Product key: <input id="pk" type="text" name="pk" value="" ><br/>
-          Path: <input id="p" type="text" name="p" value="" ><br/>
-          Author: <input id="a" type="text" name="a" value="" ><br/>
-          New item: <input id="i" type="text" name="i" value="" required><br/>
-          New value: <input id="v" type="text" name="v" value="" ><br/>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button id="submit_modal_add_item" class="btn btn-primary" data-dismiss="modal">Submit</button>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'static_pages/table_partials/modal_add_item' %>
 
 <%# MODAL for adding only new values to existing items %>
-<div class="modal fade" id="modal_add_value" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Form</h4>
-      </div>
-      <div class="modal-body">
-        <form method="" action="">
-          Product key: <input id="pk2" type="text" name="pk" value="" ><br/>
-          Path: <input id="p2" type="text" name="p" value="" ><br/>
-          Author: <input id="a2" type="text" name="a" value="" ><br/>
-          New value (or change value if current value exists): <input id="v2" type="text" name="v" value="" ><br/>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button id="submit_modal_add_value" class="btn btn-primary" data-dismiss="modal">Submit</button>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'static_pages/table_partials/modal_add_value' %>
+
 
 <h1>Product Status</h1>
 
