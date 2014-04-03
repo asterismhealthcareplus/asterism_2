@@ -10,25 +10,31 @@
 	}); 
 </script>
 
+
 <%# Script to copy item attributes from dropdown to modal_add_item %>
 <script>
-  edit = function(pk, p, a) {
+  edit = function(pk, p, a, pn) {
       /* initialise the input form based on function parameters */
       $("#pk").prop("value", pk);
       $("#p").prop("value", p);
       $("#a").prop("value", a);
+      $("#itemModalLabel").html(pn);
+      $("#path_item_modal_body").html("Path: " + p);
       $("#v").prop("value", "");
   }
 </script>
 
 <%# Script to copy item attributes from dropdown to modal_add_value %>
 <script>
-  edit_value = function(pk, p, a) {
+  edit_value = function(pk, p, a, pn, cv, item) {
       /* initialise the input form based on function parameters */
       $("#pk2").prop("value", pk);
       $("#p2").prop("value", p);
       $("#a2").prop("value", a);
-      $("#v2").prop("value", "");
+      $("#valueModalLabel").html(pn);
+      $("#path_value_modal_body").html("Path: " + p);
+      $("#item_value_modal_body").html("Item: " + item);
+      $("#v2").prop("value", cv);
   }
 </script>
 

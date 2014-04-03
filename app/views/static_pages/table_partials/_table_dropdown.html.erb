@@ -24,7 +24,7 @@
       <% if !@alldonet_product_desc['wsc'][@stat_level].nil? and !@alldonet_product_desc['wsc'][@stat_level]['$keys'].nil? %>
         <% @alldonet_product_desc['wsc'][@stat_level]['$keys'].each do |key| %>
           <li class="dropdown-submenu">
-            <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}', '#{current_user.first_name}')" do %>
+            <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}', '#{@alldonet_product_desc['wsc'][@stat_level][key]['$value']}', '#{key.humanize}')" do %>
               <%= key.humanize %>
             <% end %>
             <ul class="dropdown-menu">
@@ -33,7 +33,7 @@
               <% if !@alldonet_product_desc['wsc'][@stat_level][key].nil? and !@alldonet_product_desc['wsc'][@stat_level][key]['$keys'].nil? %>
                 <% @alldonet_product_desc['wsc'][@stat_level][key]['$keys'].each do |key2| %>
                   <li class="dropdown-submenu">
-                    <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}.#{key2.gsub(" ", "_")}', '#{current_user.first_name}')" do %>
+                    <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}.#{key2.gsub(" ", "_")}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}', '#{@alldonet_product_desc['wsc'][@stat_level][key][key2]['$value']}', '#{key2.to_s.humanize}')" do %>
                       <%= key2.to_s.humanize %>
                     <% end %>
                     <ul class="dropdown-menu">
@@ -42,7 +42,7 @@
                       <% if !@alldonet_product_desc['wsc'][@stat_level][key][key2].nil? and !@alldonet_product_desc['wsc'][@stat_level][key][key2]['$keys'].nil? %>
                         <% @alldonet_product_desc['wsc'][@stat_level][key][key2]['$keys'].each do |key3| %>
                           <li>
-                            <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}.#{key2.gsub(" ", "_")}.#{key3.gsub(" ", "_")}', '#{current_user.first_name}')" do %>
+                            <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}.#{key2.gsub(" ", "_")}.#{key3.gsub(" ", "_")}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}', '#{@alldonet_product_desc['wsc'][@stat_level][key][key2][key3]['$value']}', '#{key3.to_s.humanize}')" do %>
                               <%= key3.to_s.humanize %>
                             <% end %>
                           </li>
@@ -54,7 +54,7 @@
                         <% end %>
                       <% end %>
                       <li>
-                        <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}.#{key2.gsub(" ", "_")}', '#{current_user.first_name}')" do %>
+                        <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}.#{key2.gsub(" ", "_")}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}')" do %>
                           Add new item
                         <% end %>
                       </li>
@@ -69,7 +69,7 @@
                 <% end %>
               <% end %>  
               <li>
-                <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}', '#{current_user.first_name}')" do %> 
+                <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}')" do %> 
                   Add new item
                 <% end %>
               </li>
@@ -84,7 +84,7 @@
         <% end %>
       <% end %>
       <li>
-        <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}', '#{current_user.first_name}')" do %>
+        <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}')" do %>
           Add new item
         <% end %>
       </li>

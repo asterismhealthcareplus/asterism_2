@@ -3,15 +3,19 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Form</h4>
+        <h4 class="modal-title" id="itemModalLabel">Form</h4>
       </div>
       <div class="modal-body">
+        <p id="path_item_modal_body"></p>
+        <p id="value_item_modal_body"></p>
         <form method="" action="">
           <input id="pk" type="hidden" name="pk" value="" >
           <input id="p" type="hidden" name="p" value="" >
           <input id="a" type="hidden" name="a" value="" ><br/>
-          New item (required): <input id="i" type="text" name="i" value="" required><br/>
-          New value: <input id="v" type="text" name="v" value="" ><br/>
+          New item (required):<br/>
+          <input id="i" type="text" name="i" value="" required><br/><br/>
+          New value:<br/> 
+          <textarea id="v" type="text" cols="40" rows="5" name="v" value="" ></textarea><br/>
         </form>
       </div>
       <div class="modal-footer">
