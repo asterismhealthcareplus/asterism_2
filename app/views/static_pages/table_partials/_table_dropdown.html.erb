@@ -55,7 +55,7 @@
                       <% end %>
                       <li>
                         <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}.#{key2.gsub(" ", "_")}', '#{current_user.first_name}')" do %>
-                          Add new field
+                          Add new item
                         <% end %>
                       </li>
 <%############################### End level 3 submenu and back to level 2 ####################%>
@@ -70,7 +70,7 @@
               <% end %>  
               <li>
                 <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}', '#{current_user.first_name}')" do %> 
-                  Add new field
+                  Add new item
                 <% end %>
               </li>
 <%############################### End level 2 submenu and back to level 1 ####################%>                
@@ -85,7 +85,7 @@
       <% end %>
       <li>
         <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}', '#{current_user.first_name}')" do %>
-          Add new field
+          Add new item
         <% end %>
       </li>
 <%########################## End level 1 dropdown ###################%>      
