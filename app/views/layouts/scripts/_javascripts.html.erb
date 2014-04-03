@@ -9,3 +9,46 @@
 	  $("#main_table").toggleClass("col-md-10");
 	}); 
 </script>
+
+<%# Script for add new field %>
+<script>
+  edit = function(pk, p, a) {
+      /* initialise the input form based on function parameters */
+      $("#pk").prop("value", pk);
+      $("#p").prop("value", p);
+      $("#a").prop("value", a);
+      $("#v").prop("value", "");
+  }
+</script>
+
+
+<script>
+  function log(text)
+  {
+      $("#log").append("<li>" + text + "</li>");
+  }
+
+  $(document).ready(function() {
+      $("#submit").on('click', function() {
+          log("make request");
+          $.ajax({
+              type: "get",
+              url: "https://trm-dot-alldonetutils.appspot.com/c/asterism/setprodinfo/",
+              data: {
+                  u: "asterismui",
+                  pw: "foobar",
+                  pk: $("#pk").val(),
+                  p: $("#p").val() + '.' + $("#i").val(),
+                  a: $("#a").val(),
+                  v: $("#v").val()
+              },
+              dataType: "text",
+              crossDomain: true,
+              success: function (data) {
+                  log("success");
+                  $("#result").html(data);
+              }
+          });
+      });
+  });
+</script>

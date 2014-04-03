@@ -38,8 +38,9 @@
 
     <%########## Begin taking each product one by one and running through each of the table column cells ###########%>
     <% @alldonet_product_list.each do |product| %>
+    <% @product_key = product['pk'] %>
                           <%# variables @product_desc_part_1 and @product_desc_part_2 are defined in controller %>
-      <% @alldonet_product_desc = JSON.load(open(@product_desc_part_1 + "#{product['pk']}" + @product_desc_part_2)) %>
+      <% @alldonet_product_desc = JSON.load(open(@product_desc_part_1 + "#{@product_key}" + @product_desc_part_2)) %>
       <tr>
         <td class="row-heading text-center">
           <span class="product-code"><%= "#{product['pn']}" %></span>

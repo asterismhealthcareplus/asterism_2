@@ -57,7 +57,11 @@
           <% end %>
         <% end %>
       <% end %>
-      <li><a href="#">Add new field</a></li>
+      <li>
+        <%= content_tag :a, href: "#", onclick: "edit('#{@product_key}', '#{@stat_level}', '#{current_user.first_name}')" do %>
+          Add new field
+        <% end %>
+      </li>
 <%########################## End level 1 dropdown ###################%>      
     </ul>
 <%########################## End Dropdown ###########################################%>

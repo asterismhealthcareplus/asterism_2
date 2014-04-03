@@ -10,11 +10,14 @@
     <%############### Begin collapsible panel's collapsed contents ################%>
     <%= content_tag :div, id: "collapsesidebar", class: "panel-collapse collapse" do %>
       <%= content_tag :div, id: "max-sidebar", class: "panel-body" do %>
-        <%= form_tag "temporary" do %>
-          <%= text_area_tag "#", "Input Value:", style: "height:300px;width:100%"%>
-          <br/>
-          <%= submit_tag "Save" %>
-        <% end %>
+        <form method="" action="">
+          Product key: <input id="pk" type="text" name="pk" value="" ><br/>
+          Path: <input id="p" type="text" name="p" value="" ><br/>
+          Author: <input id="a" type="text" name="a" value="" ><br/>
+          New item: <input id="i" type="text" name="i" value="" required><br/>
+          New value: <input id="v" type="text" name="v" value="" ><br/>
+        </form>
+        <button id="submit">Submit</button>
       <% end %>
     <% end %>
   </div>
