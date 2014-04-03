@@ -17,33 +17,18 @@
 <%########################## Begin Dropdown ###########################################%>
     <ul class="dropdown-menu" role="menu">
 <%########################## Begin level 1 dropdown ################################%>      
-      <%# Checking to see if $value is present, put it in the dropdown menu as <li> %>
-      <% if @alldonet_product_desc['wsc'][@stat_level]['$value'].present? %> 
-        <% key = @alldonet_product_desc['wsc'][@stat_level]['$value'] %>
-        <li><a tabindex="-1" href="#"><%= key.to_s.humanize %></a>
-      <% end %>
       <%# checking to see if $keys is nil, and if not, then put it in the dropdown button as <li> %>
       <% if !@alldonet_product_desc['wsc'][@stat_level].nil? and !@alldonet_product_desc['wsc'][@stat_level]['$keys'].nil? %>
         <% @alldonet_product_desc['wsc'][@stat_level]['$keys'].each do |key| %>
           <li class="dropdown-submenu"><a tabindex="-1" href="#"><%= key.humanize %></a>
             <ul class="dropdown-menu">
 <%################################ Begin level 2 submenu #####################%>
-              <%# Checking to see if $value is present, put it in the dropdown menu as <li> %>
-              <% if @alldonet_product_desc['wsc'][@stat_level][key]['$value'].present? %>
-                <% key2 = @alldonet_product_desc['wsc'][@stat_level][key]['$value'] %>
-                <li><a tabindex="-1" href="#"><%= key2.to_s.humanize %></a>
-              <% end %>
               <%# checking to see if $keys is nil, and if not, then put it in the dropdown button as <li> %>
               <% if !@alldonet_product_desc['wsc'][@stat_level][key].nil? and !@alldonet_product_desc['wsc'][@stat_level][key]['$keys'].nil? %>
                 <% @alldonet_product_desc['wsc'][@stat_level][key]['$keys'].each do |key2| %>
                   <li class="dropdown-submenu"><a tabindex="-1" href="#"><%= key2.to_s.humanize %></a>
                     <ul class="dropdown-menu">
 <%############################### Begin level 3 submenu ####################%>
-                      <%# Checking to see if $value is present, put it in the dropdown menu as <li> %>
-                      <% if @alldonet_product_desc['wsc'][@stat_level][key][key2]['$value'].present? %>
-                        <% key3 = @alldonet_product_desc['wsc'][@stat_level][key][key2]['$value'] %>
-                        <li><a tabindex="-1" href="#"><%= key3.to_s.humanize %></a></li>
-                      <% end %>
                       <%# checking to see if $keys is nil, and if not, then put it in the dropdown button as <li> %>
                       <% if !@alldonet_product_desc['wsc'][@stat_level][key][key2].nil? and !@alldonet_product_desc['wsc'][@stat_level][key][key2]['$keys'].nil? %>
                         <% @alldonet_product_desc['wsc'][@stat_level][key][key2]['$keys'].each do |key3| %>
@@ -51,15 +36,25 @@
                         <% end %>
                       <% end %>
                       <li><a href="#"> Add new field</a></li>
-<%############################### End level 3 submenu ####################%>
+<%############################### End level 3 submenu and back to level 2 ####################%>
                     </ul>
                   </li>
+                  <%# Checking to see if $value is present, put it in the dropdown menu as <li> %>
+                  <% if @alldonet_product_desc['wsc'][@stat_level][key][key2]['$value'].present? %>
+                    <% key3 = @alldonet_product_desc['wsc'][@stat_level][key][key2]['$value'] %>
+                    <li><p tabindex="-1" href="#"><%= key3.to_s.humanize %></p></li>
+                  <% end %>
                 <% end %>
               <% end %>  
               <li><a href="#"> Add new field</a></li>
-<%############################### End level 2 submenu ####################%>                
+<%############################### End level 2 submenu and back to level 1 ####################%>                
             </ul>
           </li>
+          <%# Checking to see if $value is present, put it in the dropdown menu as <li> %>
+          <% if @alldonet_product_desc['wsc'][@stat_level][key]['$value'].present? %>
+            <% key2 = @alldonet_product_desc['wsc'][@stat_level][key]['$value'] %>
+            <li><p tabindex="-1" href="#"><%= key2.to_s.humanize %></p></li>
+          <% end %>
         <% end %>
       <% end %>
       <li><a href="#">Add new field</a></li>
