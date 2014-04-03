@@ -24,7 +24,7 @@
       <% if !@alldonet_product_desc['wsc'][@stat_level].nil? and !@alldonet_product_desc['wsc'][@stat_level]['$keys'].nil? %>
         <% @alldonet_product_desc['wsc'][@stat_level]['$keys'].each do |key| %>
           <li class="dropdown-submenu">
-            <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}', '#{@alldonet_product_desc['wsc'][@stat_level][key]['$value']}', '#{key.humanize}')" do %>
+            <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}', '#{@alldonet_product_desc['wsc'][@stat_level][key]['$value']}', '#{key.humanize}')" do %>
               <%= key.humanize %>
             <% end %>
             <ul class="dropdown-menu">
@@ -33,7 +33,7 @@
               <% if !@alldonet_product_desc['wsc'][@stat_level][key].nil? and !@alldonet_product_desc['wsc'][@stat_level][key]['$keys'].nil? %>
                 <% @alldonet_product_desc['wsc'][@stat_level][key]['$keys'].each do |key2| %>
                   <li class="dropdown-submenu">
-                    <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}.#{key2.gsub(" ", "_")}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}', '#{@alldonet_product_desc['wsc'][@stat_level][key][key2]['$value']}', '#{key2.to_s.humanize}')" do %>
+                    <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key}.#{key2}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}', '#{@alldonet_product_desc['wsc'][@stat_level][key][key2]['$value']}', '#{key2.to_s.humanize}')" do %>
                       <%= key2.to_s.humanize %>
                     <% end %>
                     <ul class="dropdown-menu">
@@ -42,19 +42,23 @@
                       <% if !@alldonet_product_desc['wsc'][@stat_level][key][key2].nil? and !@alldonet_product_desc['wsc'][@stat_level][key][key2]['$keys'].nil? %>
                         <% @alldonet_product_desc['wsc'][@stat_level][key][key2]['$keys'].each do |key3| %>
                           <li>
-                            <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}.#{key2.gsub(" ", "_")}.#{key3.gsub(" ", "_")}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}', '#{@alldonet_product_desc['wsc'][@stat_level][key][key2][key3]['$value']}', '#{key3.to_s.humanize}')" do %>
+                            <%= content_tag :a, tabindex: "-1", href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_value", onclick: "edit_value('#{@product_key}', '#{@stat_level}.#{key}.#{key2}.#{key3}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}', '#{@alldonet_product_desc['wsc'][@stat_level][key][key2][key3]['$value']}', '#{key3.to_s.humanize}')" do %>
                               <%= key3.to_s.humanize %>
                             <% end %>
                           </li>
                           <%# Checking to see if $value is present, put it in the dropdown menu as <li> %>
                           <% if @alldonet_product_desc['wsc'][@stat_level][key][key2][key3]['$value'].present? %>
                             <% key4 = @alldonet_product_desc['wsc'][@stat_level][key][key2][key3]['$value'] %>
-                            <li><p tabindex="-1" href="#"><%= key4.to_s.humanize %></p></li>
+                            <li>
+                              <p tabindex="-1" href="#">
+                                <%= key4.to_s.humanize[0..30] %><%= "..." if key4.to_s.humanize.length > 30 %>
+                              </p>
+                            </li>
                           <% end %>
                         <% end %>
                       <% end %>
                       <li>
-                        <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}.#{key2.gsub(" ", "_")}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}')" do %>
+                        <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key}.#{key2}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}')" do %>
                           Add new item
                         <% end %>
                       </li>
@@ -64,12 +68,16 @@
                   <%# Checking to see if $value is present, put it in the dropdown menu as <li> %>
                   <% if @alldonet_product_desc['wsc'][@stat_level][key][key2]['$value'].present? %>
                     <% key3 = @alldonet_product_desc['wsc'][@stat_level][key][key2]['$value'] %>
-                    <li><p tabindex="-1" href="#"><%= key3.to_s.humanize %></p></li>
+                    <li>
+                      <p tabindex="-1" href="#">
+                        <%= key3.to_s.humanize[0..30] %><%= "..." if key3.to_s.humanize.length > 30 %>
+                      </p>
+                    </li>
                   <% end %>
                 <% end %>
               <% end %>  
               <li>
-                <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key.gsub(" ", "_")}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}')" do %> 
+                <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}')" do %> 
                   Add new item
                 <% end %>
               </li>
@@ -79,7 +87,11 @@
           <%# Checking to see if $value is present, put it in the dropdown menu as <li> %>
           <% if @alldonet_product_desc['wsc'][@stat_level][key]['$value'].present? %>
             <% key2 = @alldonet_product_desc['wsc'][@stat_level][key]['$value'] %>
-            <li><p tabindex="-1" href="#"><%= key2.to_s.humanize %></p></li>
+            <li>
+              <p tabindex="-1" href="#">
+                <%= key2.to_s.humanize[0..30] %><%= "..." if key2.to_s.humanize.length > 30 %>
+              </p>
+            </li>
           <% end %>
         <% end %>
       <% end %>

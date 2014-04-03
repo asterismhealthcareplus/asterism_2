@@ -18,7 +18,7 @@
       $("#pk").prop("value", pk);
       $("#p").prop("value", p);
       $("#a").prop("value", a);
-      $("#itemModalLabel").html(pn);
+      $("#itemModalLabel").html("Product: " + pn);
       $("#path_item_modal_body").html("Path: " + p);
       $("#v").prop("value", "");
   }
@@ -31,7 +31,7 @@
       $("#pk2").prop("value", pk);
       $("#p2").prop("value", p);
       $("#a2").prop("value", a);
-      $("#valueModalLabel").html(pn);
+      $("#valueModalLabel").html("Product: " + pn);
       $("#path_value_modal_body").html("Path: " + p);
       $("#item_value_modal_body").html("Item: " + item);
       $("#v2").prop("value", cv);
@@ -90,6 +90,38 @@
                   p: $("#p2").val(),
                   a: $("#a2").val(),
                   v: $("#v2").val()
+              },
+              dataType: "text",
+              crossDomain: true,
+              success: function (data) {
+                  log("success");
+                  $("#result").html(data);
+              }
+          });
+      });
+  });
+</script>
+
+
+<%# script to delete item %>
+<script>
+  function log(text)
+  {
+      $("#log").append("<li>" + text + "</li>");
+  }
+
+  $(document).ready(function() {
+      $("#delete_item").on('click', function() {
+          log("make request");
+          $.ajax({
+              type: "get",
+              url: "https://trm-dot-alldonetutils.appspot.com/c/asterism/delprodinfo/",
+              data: {
+                  u: "asterismui",
+                  pw: "foobar",
+                  pk: $("#pk2").val(),
+                  p: $("#p2").val(),
+                  a: $("#a2").val()
               },
               dataType: "text",
               crossDomain: true,

@@ -3,21 +3,21 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="item_value_modal_body"></h3>
         <h4 class="modal-title" id="valueModalLabel">Form</h4>
+        <p id="path_value_modal_body"></p>
       </div>
       <div class="modal-body">
-        <p id="path_value_modal_body"></p>
-        <p id="item_value_modal_body"></p>
-        <p id="value_value_modal_body"></p>
         <form method="" action="">
           <input id="pk2" type="hidden" name="pk" value="" >
           <input id="p2" type="hidden" name="p" value="" >
           <input id="a2" type="hidden" name="a" value="" ><br/>
           New value (or change current value):<br/>
-          <textarea id="v2" type="text" cols="40" rows="5" name="v" value="" ></textarea><br/>
+          <textarea id="v2" type="text" cols="90" rows="5" name="v" value="" ></textarea><br/>
         </form>
       </div>
       <div class="modal-footer">
+        <button id="delete_item" type="button" class="btn btn-default pull-left" data-dismiss="modal">Delete item</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button id="submit_modal_add_value" class="btn btn-primary" data-dismiss="modal">Submit</button>
       </div>
