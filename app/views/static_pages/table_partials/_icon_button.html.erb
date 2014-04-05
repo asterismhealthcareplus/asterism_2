@@ -1,0 +1,15 @@
+<% if @table_highlight == true %>
+  <button type="button" class="btn btn-default no-button-border dropdown-toggle blink" data-toggle="dropdown">
+    <%= @table_icon %>
+    <% if @inside_panel == true %>
+      <br/><%= @step %>
+    <% end %>
+  </button>
+<% else %>
+  <button type="button" class="btn btn-default no-button-border dropdown-toggle" data-toggle="dropdown">
+    <%= @table_icon %>
+    <% if @inside_panel == true %>
+      <br/><%= @step %>
+    <% end %>
+  </button>
+<% end %>

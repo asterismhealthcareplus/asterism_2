@@ -1,22 +1,6 @@
 
-
-
   <div class="btn-group">
-  <% if @table_highlight == true %>
-    <button type="button" class="btn btn-default no-button-border dropdown-toggle blink" data-toggle="dropdown">
-      <%= @table_icon %>
-      <% if @inside_panel == true %>
-        <br/><%= @step %>
-      <% end %>
-    </button>
-  <% else %>
-    <button type="button" class="btn btn-default no-button-border dropdown-toggle" data-toggle="dropdown">
-      <%= @table_icon %>
-      <% if @inside_panel == true %>
-        <br/><%= @step %>
-      <% end %>
-    </button>
-  <% end %>
+    <%= render 'static_pages/table_partials/icon_button' %>
 <%########################## Begin Dropdown ###########################################%>
     <ul class="dropdown-menu" role="menu">
 <%########################## Begin level 1 dropdown ################################%>      
@@ -58,6 +42,7 @@
                         <% end %>
                       <% end %>
                       <li>
+                        <%# Button to add new item %>
                         <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key}.#{key2}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}')" do %>
                           Add new item
                         <% end %>
@@ -77,6 +62,7 @@
                 <% end %>
               <% end %>  
               <li>
+                <%# Button to add new item %>
                 <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}.#{key}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}')" do %> 
                   Add new item
                 <% end %>
@@ -96,6 +82,7 @@
         <% end %>
       <% end %>
       <li>
+        <%# Button to add new item %>
         <%= content_tag :a, href: "#", :'data-toggle' => "modal", :'data-target' => "#modal_add_item", onclick: "edit('#{@product_key}', '#{@stat_level}', '#{current_user.first_name}', '#{@alldonet_product_desc['pn']}')" do %>
           Add new item
         <% end %>
