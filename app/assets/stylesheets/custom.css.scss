@@ -217,6 +217,11 @@ table.floatThead-table {
     background-color: #FFF;
 }
 
+.table-height {
+	max-height: 400px;
+	overflow: auto;
+}
+
 
 
 /* ======== Dropdown submenus =========== */
@@ -282,11 +287,17 @@ table.floatThead-table {
 	color: $gray-light;
 }
 
+
 .panel-title {
 	color: $gray;
 	font-size: 12px;
 	width: 100%;
 }
+
+.big-font {
+	font-size: 20px;
+}
+
 
 .panel-group .panel {
 	overflow: visible;

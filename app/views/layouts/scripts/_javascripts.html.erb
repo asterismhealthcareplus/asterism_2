@@ -133,3 +133,94 @@
       });
   });
 </script>
+
+
+<%# Script to add new product %>
+<script>
+  function log(text)
+  {
+      $("#log").append("<li>" + text + "</li>");
+  }
+
+  $(document).ready(function() {
+      $("#submit_pn").on('click', function() {
+          log("make request");
+          $.ajax({
+              type: "get",
+              url: "https://trm-dot-alldonetutils.appspot.com/c/asterism/addprod/",
+              data: {
+                  u: "asterismui",
+                  pw: "foobar",
+                  pn: $("#new_pn").val(),
+                  a: $("#new_a").val()
+              },
+              dataType: "text",
+              crossDomain: true,
+              success: function (data) {
+                  log("success");
+                  $("#result").html(data);
+              }
+          });
+      });
+  });
+</script>
+
+<%# Script to assign product to user %>
+<script>
+  function log(text)
+  {
+      $("#log").append("<li>" + text + "</li>");
+  }
+
+  $(document).ready(function() {
+      $("#submit_grant").on('click', function() {
+          log("make request");
+          $.ajax({
+              type: "get",
+              url: "https://trm-dot-alldonetutils.appspot.com/c/asterism/grantuser/",
+              data: {
+                  u: "asterismui",
+                  pw: "foobar",
+                  pk: $("#grant_pk").val(),
+                  aid: $("#grant_aid").val()
+              },
+              dataType: "text",
+              crossDomain: true,
+              success: function (data) {
+                  log("success");
+                  $("#result").html(data);
+              }
+          });
+      });
+  });
+</script>
+
+<%# Script to remove product from user %>
+<script>
+  function log(text)
+  {
+      $("#log").append("<li>" + text + "</li>");
+  }
+
+  $(document).ready(function() {
+      $("#submit_revoke").on('click', function() {
+          log("make request");
+          $.ajax({
+              type: "get",
+              url: "https://trm-dot-alldonetutils.appspot.com/c/asterism/revokeuser/",
+              data: {
+                  u: "asterismui",
+                  pw: "foobar",
+                  pk: $("#grant_pk").val(),
+                  aid: $("#grant_aid").val()
+              },
+              dataType: "text",
+              crossDomain: true,
+              success: function (data) {
+                  log("success");
+                  $("#result").html(data);
+              }
+          });
+      });
+  });
+</script>

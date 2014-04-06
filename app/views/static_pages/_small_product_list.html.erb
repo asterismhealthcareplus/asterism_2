@@ -1,0 +1,22 @@
+      	<div class="table-height">
+				  <table class="table table-striped">
+
+				    <%########## Begin table headings #####################%>
+				    <thead>
+				      <tr>
+				        <th class="text-center">Product Key</th>
+				        <th class="text-center">Product Name</th>
+				      </tr>
+				    </thead>
+
+				    <%########### Begin table cells in rows ###########%>
+				    <% @alldonet_product_list.each do |product| %>
+				      <tr>
+				  			<ul>
+				          <td class="text-center"><%= product['pk'] %></td>
+									<td class="text-center"><%= product['pn'] %></td>
+				  			</ul>
+				  		</tr>
+				    <% end %>
+					</table>
+				</div>

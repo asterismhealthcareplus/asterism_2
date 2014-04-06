@@ -1,0 +1,68 @@
+<h1>Command Center</h1>
+
+<div class="row">
+  <div class="panel panel-default col-md-4">
+    <div class="panel-heading">
+      <h4 class="panel-title big-font">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          All Products
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+				<%= render 'small_product_list' %>
+        <form method="" action="">
+          <input id="new_a" type="hidden" name="a" value=<%= current_user.first_name.to_s %> ><br/>
+          Product name (required):<br/>
+          <input id="new_pn" type="text" name="pn" value="" required><br/><br/>
+        </form>
+        <button id="submit_pn" class="btn btn-primary">Create product</button>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default col-md-4">
+    <div class="panel-heading">
+      <h4 class="panel-title big-font">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          All Users
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in">
+      <div class="panel-body">
+				<%= render 'small_user_list' %>
+				<br/>
+				<br/>
+				<%= link_to "View full user list", all_users_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default col-md-4">
+    <div class="panel-heading">
+      <h4 class="panel-title big-font">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Assign Product to User
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <p>So you have have some products and some users! Make sure that you assign the product using the Product Key to a specific user by their User ID number. If you don't do this, your users won't see any products on their page.</p>
+        <br/>
+				<form method="" action="">
+          Product Key (required):<br/> 
+          <input id="grant_pk" type="text" cols="90" rows="5" name="pk" value="" required></input><br/><br/>
+          User ID (required):<br/>
+          <input id="grant_aid" type="text" name="aid" value="" required><br/><br/>
+        </form>
+        <br/>
+        <button id="submit_grant" class="btn btn-primary">Assign Product to User</button>
+        <br/>
+        <br/>
+        <button id="submit_revoke" class="btn btn-danger">Remove Product From User</button>
+      </div>
+    </div>
+  </div>
+  
+</div>
