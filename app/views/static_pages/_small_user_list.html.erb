@@ -1,0 +1,24 @@
+<div class="table-height">
+  <table class="table table-striped">
+
+    <%########## Begin table headings #####################%>
+    <thead>
+      <tr>
+        <th class="text-center">User ID</th>
+        <th class="text-center">Last, First</th>
+        <th class="text-center">Company</th>
+      </tr>
+    </thead>
+
+    <%########### Begin table cells in rows ###########%>
+    <% @users.each do |user| %> 
+      <tr>
+  			<ul>
+          <td class="text-center"><%= user.id %></td>
+					<td class="text-center"><%= user.last_name + ", " + user.first_name %></td>
+					<td class="text-center"><%= user.company %></td>
+  			</ul>
+  		</tr>
+    <% end %>
+	</table>
+</div>
