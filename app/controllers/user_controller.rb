@@ -45,7 +45,7 @@ class UserController < ApplicationController
   private
    
   def update_params #permitted parameters for update action. This is required for rails 4's Strong Parameter feature 
-    params.require(:user).permit(:company, :first_name, :last_name, :office_location, :office_city, :office_country, :employee, :customer, :admin) 
+    params.require(:user).permit(:company, :email, :first_name, :last_name, :office_location, :office_city, :office_country, :employee, :customer, :admin) 
   end
 end
 
