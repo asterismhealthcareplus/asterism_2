@@ -23,6 +23,7 @@
 <% other_status_array = [['design', design_icon], ['print', print_icon], ['procure', procure_icon]] %>
 
 <h1>Product Status</h1>
+<%= @approved_prod %>
 
 <%####### Begin table ##################################%>
 <div class="table-responsive" id="main_table">
@@ -40,7 +41,8 @@
 
     <%########## Begin taking each product one by one and running through each of the table column cells ###########%>
     <% @alldonet_product_list.each do |product| %>
-    <% @product_key = product['pk'] %>
+      <% next if !@approved_prod.include? product['pk'] and !current_user.admin? and !current_user.employee? %>
+      <% @product_key = product['pk'] %>
       <%# the below variable, @alldonet_product_desc will load a specific product's data structure from alldonet api %>
       <%# variables @product_desc_part_1 and @product_desc_part_2 are defined in controller %>
       <% @alldonet_product_desc = JSON.load(open(@product_desc_part_1 + "#{@product_key}" + @product_desc_part_2)) %>
