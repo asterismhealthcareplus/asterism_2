@@ -17,6 +17,8 @@ Asterism2::Application.routes.draw do
 
   get '/command_center', to: 'static_pages#command_center'
 
+  get '/contact', to: 'static_pages#contact'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

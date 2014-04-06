@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
 
   # Redirect to product_status_path after user signs in
   def after_sign_in_path_for user
-  	product_status_path
+    if current_user.admin? or current_user.employee?
+      command_center_path
+    else
+      product_status_path
+    end
   end
 
   # Configure attributes that users may access in order to sign up or update their account.

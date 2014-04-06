@@ -40,5 +40,8 @@ class StaticPagesController < ApplicationController
 			flash[:error] = 'You do not have the proper permission level to view that page'
 		end
 	end
+
+	def contact
+	end
 		
 end
